@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FC1A35B62DCCE2D900CCE656 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1A35B22DCCE2D900CCE656 /* Assets.xcassets */; };
+		FC1A35B72DCCE2D900CCE656 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35B32DCCE2D900CCE656 /* HomeView.swift */; };
+		FC1A35B82DCCE2D900CCE656 /* MoodTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35B42DCCE2D900CCE656 /* MoodTrackerApp.swift */; };
+		FC1A35BB2DCCE2DB00CCE656 /* MoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35B92DCCE2DB00CCE656 /* MoodTrackerTests.swift */; };
+		FC1A35BF2DCCE2DC00CCE656 /* MoodTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35BC2DCCE2DC00CCE656 /* MoodTrackerUITests.swift */; };
+		FC1A35C02DCCE2DC00CCE656 /* MoodTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35BD2DCCE2DC00CCE656 /* MoodTrackerUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		FC0F50C62DCCC2C9009CFC0C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,25 +36,13 @@
 		FC0F50B82DCCC2C8009CFC0C /* MoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC0F50C52DCCC2C9009CFC0C /* MoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC0F50CF2DCCC2C9009CFC0C /* MoodTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC1A35B22DCCE2D900CCE656 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC1A35B32DCCE2D900CCE656 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FC1A35B42DCCE2D900CCE656 /* MoodTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerApp.swift; sourceTree = "<group>"; };
+		FC1A35B92DCCE2DB00CCE656 /* MoodTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerTests.swift; sourceTree = "<group>"; };
+		FC1A35BC2DCCE2DC00CCE656 /* MoodTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerUITests.swift; sourceTree = "<group>"; };
+		FC1A35BD2DCCE2DC00CCE656 /* MoodTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		FC0F50BA2DCCC2C8009CFC0C /* MoodTracker */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MoodTracker;
-			sourceTree = "<group>";
-		};
-		FC0F50C82DCCC2C9009CFC0C /* MoodTrackerTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MoodTrackerTests;
-			sourceTree = "<group>";
-		};
-		FC0F50D22DCCC2C9009CFC0C /* MoodTrackerUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MoodTrackerUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FC0F50B52DCCC2C8009CFC0C /* Frameworks */ = {
@@ -75,9 +72,9 @@
 		FC0F50AF2DCCC2C8009CFC0C = {
 			isa = PBXGroup;
 			children = (
-				FC0F50BA2DCCC2C8009CFC0C /* MoodTracker */,
-				FC0F50C82DCCC2C9009CFC0C /* MoodTrackerTests */,
-				FC0F50D22DCCC2C9009CFC0C /* MoodTrackerUITests */,
+				FC1A35B52DCCE2D900CCE656 /* MoodTracker */,
+				FC1A35BA2DCCE2DB00CCE656 /* MoodTrackerTests */,
+				FC1A35BE2DCCE2DC00CCE656 /* MoodTrackerUITests */,
 				FC0F50B92DCCC2C8009CFC0C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +87,57 @@
 				FC0F50CF2DCCC2C9009CFC0C /* MoodTrackerUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FC1A35B52DCCE2D900CCE656 /* MoodTracker */ = {
+			isa = PBXGroup;
+			children = (
+				FC1A35C12DCCE2DE00CCE656 /* Views */,
+				FC1A35C22DCCE2F700CCE656 /* System */,
+				FC1A35C32DCCE31F00CCE656 /* PreviewContent */,
+			);
+			path = MoodTracker;
+			sourceTree = "<group>";
+		};
+		FC1A35BA2DCCE2DB00CCE656 /* MoodTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				FC1A35B92DCCE2DB00CCE656 /* MoodTrackerTests.swift */,
+			);
+			path = MoodTrackerTests;
+			sourceTree = "<group>";
+		};
+		FC1A35BE2DCCE2DC00CCE656 /* MoodTrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FC1A35BC2DCCE2DC00CCE656 /* MoodTrackerUITests.swift */,
+				FC1A35BD2DCCE2DC00CCE656 /* MoodTrackerUITestsLaunchTests.swift */,
+			);
+			path = MoodTrackerUITests;
+			sourceTree = "<group>";
+		};
+		FC1A35C12DCCE2DE00CCE656 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FC1A35B32DCCE2D900CCE656 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FC1A35C22DCCE2F700CCE656 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				FC1A35B42DCCE2D900CCE656 /* MoodTrackerApp.swift */,
+				FC1A35B22DCCE2D900CCE656 /* Assets.xcassets */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		FC1A35C32DCCE31F00CCE656 /* PreviewContent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PreviewContent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,9 +154,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				FC0F50BA2DCCC2C8009CFC0C /* MoodTracker */,
 			);
 			name = MoodTracker;
 			packageProductDependencies = (
@@ -130,9 +175,6 @@
 			dependencies = (
 				FC0F50C72DCCC2C9009CFC0C /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				FC0F50C82DCCC2C9009CFC0C /* MoodTrackerTests */,
-			);
 			name = MoodTrackerTests;
 			packageProductDependencies = (
 			);
@@ -152,9 +194,6 @@
 			);
 			dependencies = (
 				FC0F50D12DCCC2C9009CFC0C /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				FC0F50D22DCCC2C9009CFC0C /* MoodTrackerUITests */,
 			);
 			name = MoodTrackerUITests;
 			packageProductDependencies = (
@@ -212,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC1A35B62DCCE2D900CCE656 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC1A35B72DCCE2D900CCE656 /* HomeView.swift in Sources */,
+				FC1A35B82DCCE2D900CCE656 /* MoodTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC1A35BB2DCCE2DB00CCE656 /* MoodTrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +293,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC1A35BF2DCCE2DC00CCE656 /* MoodTrackerUITests.swift in Sources */,
+				FC1A35C02DCCE2DC00CCE656 /* MoodTrackerUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +442,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = MoodTracker/PreviewContent;
 				DEVELOPMENT_TEAM = NHXG9GL4YK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -405,6 +451,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -412,9 +459,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gabrielgarcia.MoodTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -425,6 +476,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = MoodTracker/PreviewContent;
 				DEVELOPMENT_TEAM = NHXG9GL4YK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -433,6 +485,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -440,9 +493,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gabrielgarcia.MoodTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

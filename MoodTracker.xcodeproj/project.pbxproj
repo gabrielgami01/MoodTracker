@@ -22,6 +22,8 @@
 		FC92AB292DCDD8B60064EF6B /* MoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB282DCDD8B60064EF6B /* MoodEntity.swift */; };
 		FC92AB2D2DCDDB0E0064EF6B /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB2C2DCDDB0E0064EF6B /* PersistenceController.swift */; };
 		FC92AB302DCDDB2B0064EF6B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB2F2DCDDB2B0064EF6B /* Repository.swift */; };
+		FC92AB3C2DCDDFBC0064EF6B /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB3B2DCDDFBC0064EF6B /* MockData.swift */; };
+		FC92AB3E2DCDDFC90064EF6B /* MockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB3D2DCDDFC90064EF6B /* MockRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		FC92AB282DCDD8B60064EF6B /* MoodEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEntity.swift; sourceTree = "<group>"; };
 		FC92AB2C2DCDDB0E0064EF6B /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		FC92AB2F2DCDDB2B0064EF6B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		FC92AB3B2DCDDFBC0064EF6B /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		FC92AB3D2DCDDFC90064EF6B /* MockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +119,7 @@
 				FC92AB1E2DCDD7B20064EF6B /* DataModel */,
 				FC1A35C62DCCE40C00CCE656 /* Model */,
 				FC1A35C22DCCE2F700CCE656 /* System */,
-				FC1A35C32DCCE31F00CCE656 /* PreviewContent */,
+				FC92AB382DCDDF950064EF6B /* PreviewContent */,
 			);
 			path = MoodTracker;
 			sourceTree = "<group>";
@@ -154,13 +158,6 @@
 			path = System;
 			sourceTree = "<group>";
 		};
-		FC1A35C32DCCE31F00CCE656 /* PreviewContent */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PreviewContent;
-			sourceTree = "<group>";
-		};
 		FC1A35C62DCCE40C00CCE656 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +194,15 @@
 				FC92AB2F2DCDDB2B0064EF6B /* Repository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		FC92AB382DCDDF950064EF6B /* PreviewContent */ = {
+			isa = PBXGroup;
+			children = (
+				FC92AB3D2DCDDFC90064EF6B /* MockRepository.swift */,
+				FC92AB3B2DCDDFBC0064EF6B /* MockData.swift */,
+			);
+			path = PreviewContent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC1A35C92DCCE41600CCE656 /* MoodTypes.swift in Sources */,
+				FC92AB3C2DCDDFBC0064EF6B /* MockData.swift in Sources */,
 				FC1A35B72DCCE2D900CCE656 /* HomeView.swift in Sources */,
 				FC92AB272DCDD8770064EF6B /* ReasonEntity.swift in Sources */,
 				FC1A35B82DCCE2D900CCE656 /* MoodTrackerApp.swift in Sources */,
@@ -345,6 +352,7 @@
 				FC1A35CB2DCCE44E00CCE656 /* Emotions.swift in Sources */,
 				FC92AB212DCDD7C30064EF6B /* MoodDataModel.xcdatamodeld in Sources */,
 				FC92AB292DCDD8B60064EF6B /* MoodEntity.swift in Sources */,
+				FC92AB3E2DCDDFC90064EF6B /* MockRepository.swift in Sources */,
 				FC92AB2D2DCDDB0E0064EF6B /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

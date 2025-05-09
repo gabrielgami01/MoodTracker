@@ -7,17 +7,15 @@
 
 import Foundation
 
-enum Emotions: String, CaseIterable {
+enum Emotions: String, CaseIterable, Identifiable {
     case happy = "Happy"
     case cool = "Cool"
     case peaceful = "Peaceful"
     case surprised = "Surprised"
-    case amazed = "Amazed"
     case excited = "Excited"
     
-    case disappointed = "Disappointed"
+    case aww = "Aww"
     case confused = "Confused"
-    case sad = "Sad"
     case stressed = "Stressed"
     case worried = "Worried"
     case angry = "Angry"
@@ -28,5 +26,11 @@ enum Emotions: String, CaseIterable {
         let mapped = values.compactMap{ Emotions(rawValue: $0) }
         
         return mapped.isEmpty ? nil : mapped
+    }
+    
+    var id: Self { self }
+    
+    var imageName: String {
+        "\(self.rawValue.lowercased())_face"
     }
 }

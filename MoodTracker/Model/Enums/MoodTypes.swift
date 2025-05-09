@@ -7,10 +7,16 @@
 
 import Foundation
 
-enum MoodTypes: String, CaseIterable {
+enum MoodTypes: String, CaseIterable, Identifiable {
     case terrible = "Terrible"
     case bad = "Bad"
     case neutral = "Neutral"
     case good = "Good"
     case awesome = "Awesome"
+    
+    var id: Self { self }
+    
+    var imageName: String {
+        "\(self.rawValue.lowercased())_face"
+    }
 }

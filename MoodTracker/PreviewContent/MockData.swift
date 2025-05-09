@@ -32,7 +32,7 @@ extension Mood {
     )
     static let mock3 = Mood(id: UUID(),
                             type: .terrible,
-                            emotions: [.worried, .sad],
+                            emotions: [.worried, .aww],
                             reason: .mock1,
                             note: "Big headache",
                             date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),

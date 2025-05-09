@@ -6,19 +6,41 @@
 //
 
 import SwiftUI
+import Charts
 
 struct HomeView: View {
+    @State private var showAddMood = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ScrollView {
+            Button {
+                showAddMood.toggle()
+            } label: {
+                Text("Add mood")
+            }
+            .buttonStyle(.borderedProminent)
         }
-        .padding()
+        .fullScreenCover(isPresented: $showAddMood) {
+            AddMoodView()
+        }
     }
 }
 
 #Preview {
     HomeView()
+}
+
+struct DayCard: View {
+    var body: some View {
+        VStack {
+            Text(Date().formatted(.dateTime.weekday()))
+                .font(.body)
+            
+            Text(Date().formatted(.dateTime.day(.defaultDigits)))
+                .font(.title3)
+                .bold()
+        }
+        .foregroundStyle(.white)
+        .padding()
+        .background(Color.accent, in: .capsule)
+    }
 }

@@ -13,7 +13,27 @@ final class AddMoodVM: ObservableObject {
     
     init(repository: Repository = RepositoryImpl.shared) {
         self.repository = repository
+        fetchReasons()
     }
     
     @Published var mood: MoodTypes = .neutral
+    @Published var emotions: [Emotions] = []
+    @Published var reason: Reason?
+    
+    @Published var reasons: [Reason] = []
+    
+    func fetchReasons() {
+        do {
+            let result = try repository.fetchReasons()
+            reasons = result
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func selectEmotion(_ emotion: Emotions) {
+        guard emotions.count < 3, !emotions.contains(emotion) else { return }
+        
+        emotions.append(emotion)
+    }
 }

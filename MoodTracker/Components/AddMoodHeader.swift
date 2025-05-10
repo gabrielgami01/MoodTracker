@@ -16,6 +16,7 @@ struct AddMoodHeader: View {
             Text(title)
                 .font(.title)
                 .bold()
+                .multilineTextAlignment(.center)
             
             Text(subtitle)
                 .font(.body)

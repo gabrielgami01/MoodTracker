@@ -12,7 +12,6 @@ struct AddMoodView: View {
     
     @State private var currentPage = 1
     
-    
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -22,26 +21,14 @@ struct AddMoodView: View {
                     .font(.headline)
 
                 HStack {
-                    if currentPage == 1 {
-                        HStack {
-                            Text(Date.now.formatted(.dateTime.month(.abbreviated).weekday().day()))
-                            
-                            Image(systemName: "calendar")
-                                .foregroundStyle(.accent)
-                        }
-                        .padding(8)
-                        .background(Color.white, in: .capsule)
-                    } else {
-                        Button {
-                            withAnimation {
-                                currentPage -= 1
-                            }
-                        } label: {
-                            Image(systemName: "arrow.backward")
-                                .font(.title2)
-                        }
-                        .buttonStyle(.plain)
+                    HStack {
+                        Text(Date.now.formatted(.dateTime.month(.abbreviated).weekday().day()))
+                        
+                        Image(systemName: "calendar")
+                            .foregroundStyle(.accent)
                     }
+                    .padding(8)
+                    .background(Color.white, in: .capsule)
 
                     Spacer()
 
@@ -60,6 +47,9 @@ struct AddMoodView: View {
             if currentPage == 1 {
                 firstPage
                     .transition(.move(edge: .leading))
+            } else if currentPage == 2 {
+                secondPage
+                    .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
             }
             
             Spacer()
@@ -90,6 +80,40 @@ struct AddMoodView: View {
                 vm.mood = mood
             }
         }
+    }
+    
+    var secondPage: some View {
+        VStack(spacing: 36) {
+            Group {
+                if vm.emotions.isEmpty {
+                    AddMoodHeader(title: "Choose the emotions that make you feel \(vm.mood.rawValue.lowercased())",
+                                  subtitle: "Select at least 1 emotion")
+                } else {
+                    SelectedComponent(values: vm.emotions, maxElement: 3) {
+                        vm.emotions.removeAll()
+                    } onTap: { emotion in
+                        vm.emotions.removeAll { $0 == emotion}
+                    }
+                }
+            }
+            .frame(height: 100)
+            .transition(.opacity)
+            
+            VStack(alignment: .leading) {
+                Text("All emotions")
+                    .font(.body)
+                    .fontWeight(.semibold)
+                
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
+                    ForEach(Emotions.allCases) { emotion in
+                        EmotionsButton(emotion: emotion, isSelected: vm.emotions.contains(emotion)) {
+                            vm.selectEmotion(emotion)
+                        }
+                    }
+                }
+            }
+        }
+        .animation(.default, value: vm.emotions)
     }
 }
 

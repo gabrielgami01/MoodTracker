@@ -50,6 +50,9 @@ struct AddMoodView: View {
             } else if currentPage == 2 {
                 secondPage
                     .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+            } else if currentPage == 3 {
+                thirdPage
+                    .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
             }
             
             Spacer()
@@ -76,8 +79,8 @@ struct AddMoodView: View {
             AddMoodHeader(title: "What's your mood now?",
                           subtitle: "Select mood that reflects the most how you are feeling at this moment")
             
-            MoodSelector(selectedMood: vm.mood) { mood in
-                vm.mood = mood
+            MoodSelector(selectedMood: vm.selectedMood) { mood in
+                vm.selectedMood = mood
             }
         }
     }
@@ -85,14 +88,14 @@ struct AddMoodView: View {
     var secondPage: some View {
         VStack(spacing: 36) {
             Group {
-                if vm.emotions.isEmpty {
-                    AddMoodHeader(title: "Choose the emotions that make you feel \(vm.mood.rawValue.lowercased())",
+                if vm.selectedEmotions.isEmpty {
+                    AddMoodHeader(title: "Choose the emotions that make you feel \(vm.selectedMood.rawValue.lowercased())",
                                   subtitle: "Select at least 1 emotion")
                 } else {
-                    SelectedComponent(values: vm.emotions, maxElement: 3) {
-                        vm.emotions.removeAll()
+                    SelectedComponent(values: vm.selectedEmotions, maxElement: 3) {
+                        vm.selectedEmotions.removeAll()
                     } onTap: { emotion in
-                        vm.emotions.removeAll { $0 == emotion}
+                        vm.selectedEmotions.removeAll { $0 == emotion}
                     }
                 }
             }
@@ -106,14 +109,48 @@ struct AddMoodView: View {
                 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
                     ForEach(Emotions.allCases) { emotion in
-                        EmotionsButton(emotion: emotion, isSelected: vm.emotions.contains(emotion)) {
+                        EmotionsButton(emotion: emotion, isSelected: vm.selectedEmotions.contains(emotion)) {
                             vm.selectEmotion(emotion)
                         }
                     }
                 }
             }
         }
-        .animation(.default, value: vm.emotions)
+        .animation(.default, value: vm.selectedEmotions)
+    }
+    
+    var thirdPage: some View {
+        VStack(spacing: 36) {
+            Group {
+                if vm.selectedReason.isEmpty {
+                    AddMoodHeader(title: "What`s reason making you feel this way",
+                                  subtitle: "Select the reason that reflated your emotions")
+                } else {
+                    SelectedComponent(values: vm.selectedReason, displayKeyPath: \.name, maxElement: 1) {
+                        vm.selectedReason.removeAll()
+                    } onTap: { emotion in
+                        vm.selectedReason.removeAll()
+                    }
+                }
+            }
+            .frame(height: 100)
+            .transition(.opacity)
+            
+            VStack(alignment: .leading) {
+                Text("All emotions")
+                    .font(.body)
+                    .fontWeight(.semibold)
+                
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
+                    ForEach(vm.reasons) { reason in
+                        ReasonsButton(reason: reason, isSelected: vm.selectedReason.contains(reason)) {
+                            vm.selectReason(reason)
+                        }
+                    }
+                }
+            }
+        }
+        .animation(.default, value: vm.reasons)
     }
 }
 

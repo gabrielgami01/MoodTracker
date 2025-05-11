@@ -16,9 +16,9 @@ final class AddMoodVM: ObservableObject {
         fetchReasons()
     }
     
-    @Published var mood: MoodTypes = .neutral
-    @Published var emotions: [Emotions] = []
-    @Published var reason: Reason?
+    @Published var selectedMood: MoodTypes = .neutral
+    @Published var selectedEmotions: [Emotions] = []
+    @Published var selectedReason: [Reason] = []
     
     @Published var reasons: [Reason] = []
     
@@ -33,8 +33,13 @@ final class AddMoodVM: ObservableObject {
     }
     
     func selectEmotion(_ emotion: Emotions) {
-        guard emotions.count < 3, !emotions.contains(emotion) else { return }
+        guard selectedEmotions.count < 3, !selectedEmotions.contains(emotion) else { return }
         
-        emotions.append(emotion)
+        selectedEmotions.append(emotion)
+    }
+    
+    func selectReason(_ reason: Reason) {
+        selectedReason.removeAll()
+        selectedReason.append(reason)
     }
 }

@@ -30,6 +30,7 @@
 		FC92AB472DCE1B2F0064EF6B /* AddMoodVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB462DCE1B2F0064EF6B /* AddMoodVM.swift */; };
 		FC92AB4A2DCE32130064EF6B /* MoodSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB492DCE32130064EF6B /* MoodSelector.swift */; };
 		FC92AB4D2DCE32440064EF6B /* AddMoodHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB4C2DCE32440064EF6B /* AddMoodHeader.swift */; };
+		FCC40EE32DD0B86700BD2A89 /* ReasonsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC40EE22DD0B86700BD2A89 /* ReasonsButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		FC92AB462DCE1B2F0064EF6B /* AddMoodVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoodVM.swift; sourceTree = "<group>"; };
 		FC92AB492DCE32130064EF6B /* MoodSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelector.swift; sourceTree = "<group>"; };
 		FC92AB4C2DCE32440064EF6B /* AddMoodHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoodHeader.swift; sourceTree = "<group>"; };
+		FCC40EE22DD0B86700BD2A89 /* ReasonsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonsButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 		FC92AB482DCE32080064EF6B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FCC40EE22DD0B86700BD2A89 /* ReasonsButton.swift */,
 				FC7ED5EF2DCF7544002A6B2E /* SelectedComponent.swift */,
 				FC7ED5ED2DCF74F5002A6B2E /* EmotionsButton.swift */,
 				FC92AB4C2DCE32440064EF6B /* AddMoodHeader.swift */,
@@ -388,6 +391,7 @@
 				FC92AB4D2DCE32440064EF6B /* AddMoodHeader.swift in Sources */,
 				FC92AB232DCDD82E0064EF6B /* Reason.swift in Sources */,
 				FC1A35CB2DCCE44E00CCE656 /* Emotions.swift in Sources */,
+				FCC40EE32DD0B86700BD2A89 /* ReasonsButton.swift in Sources */,
 				FC92AB212DCDD7C30064EF6B /* MoodDataModel.xcdatamodeld in Sources */,
 				FC7ED5F02DCF7544002A6B2E /* SelectedComponent.swift in Sources */,
 				FC92AB292DCDD8B60064EF6B /* MoodEntity.swift in Sources */,

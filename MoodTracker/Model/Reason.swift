@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Reason {
+struct Reason: Identifiable, Hashable {
     let id: UUID
     let name: String
 }

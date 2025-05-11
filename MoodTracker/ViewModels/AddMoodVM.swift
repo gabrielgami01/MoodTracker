@@ -26,6 +26,7 @@ final class AddMoodVM: ObservableObject {
         do {
             let result = try repository.fetchReasons()
             reasons = result
+            print(result)
         } catch {
             print(error.localizedDescription)
         }

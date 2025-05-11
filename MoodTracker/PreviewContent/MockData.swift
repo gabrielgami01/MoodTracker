@@ -8,6 +8,8 @@
 import Foundation
 
 extension Mood {
+    static let mocks = [Mood.mock1, Mood.mock2, Mood.mock3]
+    
     static let mock1 = Mood(id: UUID(),
                             type: .good,
                             emotions: [.peaceful, .happy],
@@ -22,7 +24,7 @@ extension Mood {
     static let mock2 = Mood(id: UUID(),
                             type: .neutral,
                             emotions: [.peaceful],
-                            reason: .mock1,
+                            reason: .mock2,
                             note: "Normal day of work",
                             date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
                                                                              month: Calendar.current.component(.month, from: Date.now),
@@ -33,7 +35,7 @@ extension Mood {
     static let mock3 = Mood(id: UUID(),
                             type: .terrible,
                             emotions: [.worried, .aww],
-                            reason: .mock1,
+                            reason: .mock3,
                             note: "Big headache",
                             date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
                                                                              month: Calendar.current.component(.month, from: Date.now),
@@ -44,6 +46,8 @@ extension Mood {
 }
 
 extension Reason {
+    static let mocks = [Reason.mock1, Reason.mock2, Reason.mock3]
+    
     static let mock1 = Reason(id: UUID(),
                               name: "Sleep")
     static let mock2 = Reason(id: UUID(),

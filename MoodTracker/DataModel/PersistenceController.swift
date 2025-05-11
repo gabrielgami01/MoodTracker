@@ -13,10 +13,10 @@ final class PersistenceController {
     
     let persistentContainer: NSPersistentContainer
     
-    init(inMemory: Bool = true) {
+    init(forPreview: Bool = false) {
         persistentContainer = NSPersistentContainer(name: "MoodDataModel")
         
-        if !inMemory {
+        if forPreview {
             persistentContainer.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
         
@@ -24,6 +24,10 @@ final class PersistenceController {
             if let error {
                 fatalError("Error loading persistent stores: \(error)")
             }
+        }
+        
+        if forPreview {
+            loadMockData(context: persistentContainer.viewContext)
         }
         
         persistentContainer.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump

@@ -118,5 +118,5 @@ struct AddMoodView: View {
 }
 
 #Preview {
-    AddMoodView()
+    AddMoodView(vm: AddMoodVM(repository: MockRepository()))
 }

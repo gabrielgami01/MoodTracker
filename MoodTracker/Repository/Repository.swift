@@ -41,7 +41,7 @@ extension Repository {
         let newMoodEntity = MoodEntity(context: context)
         newMoodEntity.id = mood.id
         newMoodEntity.type = mood.type.rawValue
-        newMoodEntity.emotions = mood.emotions.map(\.rawValue)
+        newMoodEntity.emotions = mood.emotions.map(\.rawValue) as NSArray
         newMoodEntity.reason = reasonEntity
         newMoodEntity.note = mood.note
         newMoodEntity.date = Date.now

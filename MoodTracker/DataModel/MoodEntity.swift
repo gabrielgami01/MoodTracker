@@ -12,7 +12,7 @@ extension MoodEntity {
     var toMood: Mood? {
         guard let id,
               let rawType = type, let type = MoodTypes(rawValue: rawType),
-              let emotions = Emotions.parseAll(from: emotions),
+              let emotions = Emotions.parseAll(from: emotions as? [String]),
               let reason = reason?.toReason,
               let note = note,
               let date = date else { return nil}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1e2f3d4c-5b6a-7c8d-9e0f-112233445566",
+    "name": "Self esteem"
+  },
+  {
+    "id": "22334455-6677-8899-aabb-ccddeeff0011",
+    "name": "Health"
+  },
+  {
+    "id": "33445566-7788-9900-aabb-ccddeeff1122",
+    "name": "Sleep"
+  },
+  {
+    "id": "44556677-8899-0011-aabb-ccddeeff2233",
+    "name": "Food"
+  },
+  {
+    "id": "55667788-9900-1122-aabb-ccddeeff3344",
+    "name": "Family"
+  },
+  {
+    "id": "66778899-0011-2233-aabb-ccddeeff4455",
+    "name": "Partner"
+  },
+  {
+    "id": "77889900-1122-3344-aabb-ccddeeff5566",
+    "name": "Friends"
+  },
+  {
+    "id": "88990011-2233-4455-aabb-ccddeeff6677",
+    "name": "Work"
+  },
+  {
+    "id": "99001122-3344-5566-aabb-ccddeeff7788",
+    "name": "Academic"
+  },
+  {
+    "id": "aabbccdd-4455-6677-aabb-ccddeeff8899",
+    "name": "Hobbies"
+  },
+  {
+    "id": "bbccddee-5566-7788-aabb-ccddeeff99aa",
+    "name": "Sports"
+  },
+  {
+    "id": "ccddeeff-6677-8899-aabb-ccddeeff00bb",
+    "name": "Social"
+  },
+  {
+    "id": "ddeeff00-7788-9900-aabb-ccddeeff11cc",
+    "name": "Weather"
+  },
+  {
+    "id": "eeff0011-8899-0011-aabb-ccddeeff22dd",
+    "name": "Traffic"
+  },
+  {
+    "id": "ff001122-9900-1122-aabb-ccddeeff33ee",
+    "name": "Other"
+  }
+]

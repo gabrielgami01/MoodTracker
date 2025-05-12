@@ -66,6 +66,26 @@ extension Repository {
         guard let result = try context.fetch(request).first else { return nil }
         return result
     }
+    
+    func preloadDefaultReasons() async throws {
+        let context = persistenceController.newBackgroundContext()
+        
+        guard let url = Bundle.main.url(forResource: "defaultReasons", withExtension: "json") else { return }
+        let data = try Data(contentsOf: url)
+        
+        let decoder = JSONDecoder()
+        
+        let reasons = try decoder.decode([Reason].self, from: data)
+        
+        try await context.perform {
+            for reason in reasons {
+                let newReasonEntity = ReasonEntity(context: context)
+                newReasonEntity.id = reason.id
+                newReasonEntity.name = reason.name
+            }
+            try context.save()
+        }
+    }
 }
 
 struct RepositoryImpl: Repository {

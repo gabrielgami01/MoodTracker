@@ -9,7 +9,11 @@ import SwiftUI
 import Charts
 
 struct HomeView: View {
+    @AppStorage("firstTime") private var firstTime: Bool = true
+    @ObservedObject var vm = MoodsVM()
+    
     @State private var showAddMood = false
+    
     var body: some View {
         ScrollView {
             Button {
@@ -21,6 +25,12 @@ struct HomeView: View {
         }
         .fullScreenCover(isPresented: $showAddMood) {
             AddMoodView()
+        }
+        .task {
+            if firstTime {
+                await vm.preloadData()
+                firstTime = false
+            }
         }
     }
 }

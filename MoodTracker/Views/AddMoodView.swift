@@ -149,7 +149,7 @@ struct AddMoodView: View {
                     .font(.body)
                     .fontWeight(.semibold)
                 
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
                     ForEach(vm.reasons) { reason in
                         ReasonsButton(reason: reason, isSelected: vm.selectedReason.contains(reason)) {
                             vm.selectReason(reason)
@@ -179,4 +179,28 @@ struct AddMoodView: View {
 
 #Preview {
     AddMoodView(vm: AddMoodVM(repository: MockRepository()))
+}
+
+struct ReasonsButton: View {
+    let reason: Reason
+    let isSelected: Bool
+    let onSelect: () -> Void
+    
+    var body: some View {
+        Button {
+            onSelect()
+        } label: {
+            Text(reason.name)
+                .lineLimit(1)
+                .padding(12)
+                .frame(width: 110)
+                .background(isSelected ? .white : .clear, in: .capsule)
+                .background {
+                    Capsule()
+                        .stroke(Color.accent, lineWidth: 2)
+                }
+                
+        }
+        .buttonStyle(.plain)
+    }
 }

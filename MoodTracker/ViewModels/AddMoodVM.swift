@@ -23,6 +23,15 @@ final class AddMoodVM: ObservableObject {
     
     @Published var reasons: [Reason] = []
     
+    @Published var currentPage = 1
+    var isDisabled: Bool {
+        if (currentPage == 2 && selectedEmotions.isEmpty) || (currentPage == 3 && selectedReason.isEmpty) {
+            true
+        } else {
+            false
+        }
+    }
+    
     func fetchReasons() {
         do {
             let result = try repository.fetchReasons()
@@ -32,15 +41,17 @@ final class AddMoodVM: ObservableObject {
         }
     }
     
-    func saveMood() {
-        guard let reason = selectedReason.first else { return }
+    func saveMood() -> Bool {
+        guard let reason = selectedReason.first else { return false }
         
         let newMood = Mood(id: UUID(), type: selectedMood, emotions: selectedEmotions, reason: reason, note: note, date: .now)
         do {
             try repository.addMood(newMood)
+            return true
         }
         catch {
             print(error.localizedDescription)
+            return false
         }
     }
     

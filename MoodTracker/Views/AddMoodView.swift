@@ -10,14 +10,12 @@ import SwiftUI
 struct AddMoodView: View {
     @ObservedObject var vm = AddMoodVM()
     
-    @State private var currentPage = 1
-    
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack(spacing: 24) {
             ZStack {
-                Text("\(currentPage)/4")
+                Text("\(vm.currentPage)/4")
                     .font(.headline)
 
                 HStack {
@@ -44,13 +42,13 @@ struct AddMoodView: View {
             }
             .frame(height: 40)
             
-            if currentPage == 1 {
+            if vm.currentPage == 1 {
                 firstPage
                     .transition(.move(edge: .leading))
-            } else if currentPage == 2 {
+            } else if vm.currentPage == 2 {
                 secondPage
                     .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-            } else if currentPage == 3 {
+            } else if vm.currentPage == 3 {
                 thirdPage
                     .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
             } else {
@@ -60,21 +58,25 @@ struct AddMoodView: View {
             Spacer()
             
             Button {
-                if currentPage != 4 {
+                if vm.currentPage != 4 {
                     withAnimation {
-                        currentPage += 1
+                        vm.currentPage += 1
                     }
                 } else {
-                    vm.saveMood()
+                    if vm.saveMood() {
+                        dismiss()
+                    }
                 }
             } label: {
-                Text(currentPage != 4 ? "Continue" : "Save")
+                Text(vm.currentPage != 4 ? "Continue" : "Save")
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.accentColor, in: .capsule)
             }
+            .disabled(vm.isDisabled)
+            .animation(.default, value: vm.isDisabled)
         }
         .padding(.horizontal)
         .background(Color.background)

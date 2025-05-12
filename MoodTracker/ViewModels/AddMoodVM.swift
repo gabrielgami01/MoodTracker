@@ -19,6 +19,7 @@ final class AddMoodVM: ObservableObject {
     @Published var selectedMood: MoodTypes = .neutral
     @Published var selectedEmotions: [Emotions] = []
     @Published var selectedReason: [Reason] = []
+    @Published var note = ""
     
     @Published var reasons: [Reason] = []
     
@@ -26,8 +27,19 @@ final class AddMoodVM: ObservableObject {
         do {
             let result = try repository.fetchReasons()
             reasons = result
-            print(result)
         } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func saveMood() {
+        guard let reason = selectedReason.first else { return }
+        
+        let newMood = Mood(id: UUID(), type: selectedMood, emotions: selectedEmotions, reason: reason, note: note, date: .now)
+        do {
+            try repository.addMood(newMood)
+        }
+        catch {
             print(error.localizedDescription)
         }
     }

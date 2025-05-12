@@ -53,16 +53,22 @@ struct AddMoodView: View {
             } else if currentPage == 3 {
                 thirdPage
                     .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+            } else {
+                fourthPage
             }
             
             Spacer()
             
             Button {
-                withAnimation {
-                    currentPage += 1
+                if currentPage != 4 {
+                    withAnimation {
+                        currentPage += 1
+                    }
+                } else {
+                    vm.saveMood()
                 }
             } label: {
-                Text("Continue")
+                Text(currentPage != 4 ? "Continue" : "Save")
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -151,6 +157,21 @@ struct AddMoodView: View {
             }
         }
         .animation(.default, value: vm.reasons)
+    }
+    
+    var fourthPage: some View {
+        VStack(spacing: 36) {
+            AddMoodHeader(title: "Any thing you want to add",
+                          subtitle: "Add your notes on any thought that reflating yout mood")
+            .frame(height: 100)
+            
+            TextEditor(text: $vm.note)
+                .autocorrectionDisabled()
+                .font(.body)
+                .background(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .frame(height: 300)
+        }
     }
 }
 

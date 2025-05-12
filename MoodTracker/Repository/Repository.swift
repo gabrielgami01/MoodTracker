@@ -45,6 +45,8 @@ extension Repository {
         newMoodEntity.reason = reasonEntity
         newMoodEntity.note = mood.note
         newMoodEntity.date = Date.now
+        
+        try context.save()
     }
     
     func addReason(_ reason: Reason) throws {

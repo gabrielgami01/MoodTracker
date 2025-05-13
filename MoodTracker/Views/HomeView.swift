@@ -25,6 +25,9 @@ struct HomeView: View {
                         withAnimation {
                             showDeleteSheet.toggle()
                         }
+                    } onEdit: {
+                        vm.selectedMood = mood
+                        showAddMood.toggle()
                     }
                 }
             }
@@ -48,12 +51,13 @@ struct HomeView: View {
                 withAnimation {
                     moodStore.deleteMood(vm.selectedMood)
                 }
+                vm.selectedMood = nil
             }
         }
         .background(Color.background)
         .scrollIndicators(.hidden)
         .fullScreenCover(isPresented: $showAddMood) {
-            AddMoodView()
+            MoodEditorView(vm: MoodEditorVM(mood: vm.selectedMood))
         }
         .task {
             if firstTime {
@@ -61,7 +65,6 @@ struct HomeView: View {
                 firstTime = false
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

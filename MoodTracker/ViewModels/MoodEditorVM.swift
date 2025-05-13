@@ -8,13 +8,16 @@
 import Foundation
 
 @MainActor
-final class AddMoodVM: ObservableObject {
+final class MoodEditorVM: ObservableObject {
     let repository: Repository
     
-    init(repository: Repository = RepositoryImpl.shared) {
+    init(repository: Repository = RepositoryImpl.shared, mood: Mood? = nil) {
         self.repository = repository
+        self.mood = mood
         fetchReasons()
     }
+    
+    @Published var mood: Mood?
     
     @Published var selectedMood: MoodTypes = .neutral
     @Published var selectedEmotions: [Emotions] = []
@@ -32,6 +35,15 @@ final class AddMoodVM: ObservableObject {
         }
     }
     
+    func loadMood() {
+        guard let mood else { return }
+        
+        selectedMood = mood.type
+        selectedEmotions = mood.emotions
+        selectedReason = [mood.reason]
+        note = mood.note
+    }
+    
     func fetchReasons() {
         do {
             let result = try repository.fetchReasons()
@@ -41,10 +53,10 @@ final class AddMoodVM: ObservableObject {
         }
     }
     
-    func addMood() -> Mood? {
+    func createMood() -> Mood? {
         guard let reason = selectedReason.first else { return nil }
         
-        let newMood = Mood(id: UUID(), type: selectedMood, emotions: selectedEmotions, reason: reason, note: note, date: .now)
+        let newMood = Mood(id: mood?.id ?? UUID(), type: selectedMood, emotions: selectedEmotions, reason: reason, note: note, date: .now)
         
         return newMood
     }

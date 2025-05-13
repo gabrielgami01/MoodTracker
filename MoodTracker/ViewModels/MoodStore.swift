@@ -47,4 +47,13 @@ final class MoodStore: ObservableObject {
             print(error.localizedDescription)
         }
     }
+    
+    func updateMood(_ mood: Mood) {
+        do {
+            try repository.updateMood(mood)
+            fetchMoods()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

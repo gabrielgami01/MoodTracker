@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct AddMoodView: View {
+struct MoodEditorView: View {
     @EnvironmentObject private var moodsVM: MoodStore
-    @ObservedObject var vm = AddMoodVM()
+    @ObservedObject var vm: MoodEditorVM
     
     @Environment(\.dismiss) private var dismiss
     
@@ -64,8 +64,12 @@ struct AddMoodView: View {
                         vm.currentPage += 1
                     }
                 } else {
-                    if let newMood = vm.addMood() {
-                        moodsVM.addMood(newMood)
+                    if let newMood = vm.createMood() {
+                        if vm.mood == nil {
+                            moodsVM.addMood(newMood)
+                        } else {
+                            moodsVM.updateMood(newMood)
+                        }
                         dismiss()
                     }
                 }
@@ -82,6 +86,9 @@ struct AddMoodView: View {
         }
         .padding(.horizontal)
         .background(Color.background)
+        .task {
+            vm.loadMood()
+        }
     }
     
     var firstPage: some View {
@@ -180,6 +187,6 @@ struct AddMoodView: View {
 }
 
 #Preview {
-    AddMoodView(vm: AddMoodVM(repository: MockRepository()))
+    MoodEditorView(vm: MoodEditorVM(repository: MockRepository()))
         .environmentObject(MoodStore(repository: MockRepository()))
 }

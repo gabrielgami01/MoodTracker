@@ -55,6 +55,21 @@ extension Repository {
         try context.save()
     }
     
+    func updateMood(_ mood: Mood) throws {
+        let context = persistenceController.viewContext
+        
+        guard let moodEntity = try fetchMood(withID: mood.id) else { return }
+        guard let reasonEntity = try fetchReason(withID: mood.reason.id) else { return }
+        
+        moodEntity.type = mood.type.rawValue
+        moodEntity.emotions = mood.emotions.map(\.rawValue) as NSArray
+        moodEntity.reason = reasonEntity
+        moodEntity.note = mood.note
+        moodEntity.date = Date.now
+        
+        try context.save()
+    }
+    
     func deleteMood(_ mood: Mood) throws {
         let context = persistenceController.viewContext
         

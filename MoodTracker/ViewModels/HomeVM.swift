@@ -14,6 +14,8 @@ final class HomeVM: ObservableObject {
         self.repository = repository
     }
     
+    @Published var selectedMood: Mood?
+    
     func preloadData() async {
         do {
             try await repository.preloadDefaultReasons()

@@ -41,18 +41,12 @@ final class AddMoodVM: ObservableObject {
         }
     }
     
-    func saveMood() -> Bool {
-        guard let reason = selectedReason.first else { return false }
+    func addMood() -> Mood? {
+        guard let reason = selectedReason.first else { return nil }
         
         let newMood = Mood(id: UUID(), type: selectedMood, emotions: selectedEmotions, reason: reason, note: note, date: .now)
-        do {
-            try repository.addMood(newMood)
-            return true
-        }
-        catch {
-            print(error.localizedDescription)
-            return false
-        }
+        
+        return newMood
     }
     
     func selectEmotion(_ emotion: Emotions) {

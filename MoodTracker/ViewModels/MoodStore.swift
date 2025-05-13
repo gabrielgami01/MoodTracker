@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @MainActor
-final class MoodsVM: ObservableObject {
+final class MoodStore: ObservableObject {
     let repository: Repository
     
     init(repository: Repository = RepositoryImpl.shared) {
@@ -23,6 +23,26 @@ final class MoodsVM: ObservableObject {
         do {
             let result = try repository.fetchMoods()
             moods = result
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func addMood(_ mood: Mood) {
+        do {
+            try repository.addMood(mood)
+            fetchMoods()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func deleteMood(_ mood: Mood?) {
+        guard let mood else { return }
+        
+        do {
+            try repository.deleteMood(mood)
+            fetchMoods()
         } catch {
             print(error.localizedDescription)
         }

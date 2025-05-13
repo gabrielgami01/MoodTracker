@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct MoodTrackerApp: App {
-    @StateObject var moodsVM = MoodsVM()
+    @StateObject var moodsVM = MoodStore()
     var body: some Scene {
         WindowGroup {
             HomeView()

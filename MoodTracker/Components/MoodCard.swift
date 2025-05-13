@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MoodCard: View {
     let mood: Mood
+    let onDelete: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
@@ -30,14 +31,14 @@ struct MoodCard: View {
                 
                 HStack(spacing: 20) {
                     Button {
-                        
+                        onDelete()
                     } label: {
                         Text("Delete")
                     }
                     .foregroundStyle(.red)
                     
                     Button {
-                        
+
                     } label: {
                         Text("Edit")
                     }
@@ -63,7 +64,7 @@ struct MoodCard: View {
 
 #Preview {
     ScrollView {
-        MoodCard(mood: .mock1)
+        MoodCard(mood: .mock1) {}
     }
     .padding()
     .background(Color.background)

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddMoodView: View {
+    @EnvironmentObject private var moodsVM: MoodStore
     @ObservedObject var vm = AddMoodVM()
     
     @Environment(\.dismiss) private var dismiss
@@ -63,7 +64,8 @@ struct AddMoodView: View {
                         vm.currentPage += 1
                     }
                 } else {
-                    if vm.saveMood() {
+                    if let newMood = vm.addMood() {
+                        moodsVM.addMood(newMood)
                         dismiss()
                     }
                 }
@@ -179,4 +181,5 @@ struct AddMoodView: View {
 
 #Preview {
     AddMoodView(vm: AddMoodVM(repository: MockRepository()))
+        .environmentObject(MoodStore(repository: MockRepository()))
 }

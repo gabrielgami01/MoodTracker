@@ -10,16 +10,22 @@ import Charts
 
 struct HomeView: View {
     @AppStorage("firstTime") private var firstTime: Bool = true
-    @EnvironmentObject private var moodsVM: MoodsVM
+    @EnvironmentObject private var moodStore: MoodStore
     @ObservedObject var vm = HomeVM()
     
     @State private var showAddMood = false
+    @State private var showDeleteSheet = false
     
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 20) {
-                ForEach(moodsVM.moods) { mood in
-                    MoodCard(mood: mood)
+                ForEach(moodStore.moods) { mood in
+                    MoodCard(mood: mood) {
+                        vm.selectedMood = mood
+                        withAnimation {
+                            showDeleteSheet.toggle()
+                        }
+                    }
                 }
             }
         }
@@ -36,9 +42,16 @@ struct HomeView: View {
             .buttonStyle(.plain)
         }
         .padding(.horizontal)
+        .sheet(isPresented: $showDeleteSheet) {
+            DeleteSheet(isPresented: $showDeleteSheet, iconName: "trash.circle.fill",
+                        title: "Delete existing mood?", subtitle: "This will permanently delete your mood data.") {
+                withAnimation {
+                    moodStore.deleteMood(vm.selectedMood)
+                }
+            }
+        }
         .background(Color.background)
         .scrollIndicators(.hidden)
-        
         .fullScreenCover(isPresented: $showAddMood) {
             AddMoodView()
         }
@@ -48,12 +61,13 @@ struct HomeView: View {
                 firstTime = false
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
 #Preview {
-    HomeView(vm: HomeVM(repository: MockRepository()))
-        .environmentObject(MoodsVM(repository: MockRepository()))
+   HomeView(vm: HomeVM(repository: MockRepository()))
+        .environmentObject(MoodStore(repository: MockRepository()))
 }
 
 struct DayCard: View {

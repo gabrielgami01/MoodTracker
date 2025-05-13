@@ -55,6 +55,13 @@ extension Repository {
         try context.save()
     }
     
+    func deleteMood(_ mood: Mood) throws {
+        let context = persistenceController.viewContext
+        
+        guard let moodEntity = try fetchMood(withID: mood.id) else { return }
+        context.delete(moodEntity)
+    }
+    
     func addReason(_ reason: Reason) throws {
         let context = persistenceController.viewContext
         
@@ -69,6 +76,16 @@ extension Repository {
         let context = persistenceController.viewContext
         
         let request = ReasonEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        
+        guard let result = try context.fetch(request).first else { return nil }
+        return result
+    }
+    
+    private func fetchMood(withID id: UUID) throws -> MoodEntity? {
+        let context = persistenceController.viewContext
+        
+        let request = MoodEntity.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
         guard let result = try context.fetch(request).first else { return nil }

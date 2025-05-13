@@ -17,6 +17,8 @@
 		FC1A35CB2DCCE44E00CCE656 /* Emotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35CA2DCCE44E00CCE656 /* Emotions.swift */; };
 		FC737FD82DD2002B001A28D6 /* defaultReasons.json in Resources */ = {isa = PBXBuildFile; fileRef = FC737FD72DD2002B001A28D6 /* defaultReasons.json */; };
 		FC737FDC2DD20049001A28D6 /* MoodsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC737FDB2DD20049001A28D6 /* MoodsVM.swift */; };
+		FC7C1EF62DD34799007523CF /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C1EF52DD34797007523CF /* HomeVM.swift */; };
+		FC7C1EF82DD34C3F007523CF /* MoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C1EF72DD34C3F007523CF /* MoodCard.swift */; };
 		FC7ED5EE2DCF74F5002A6B2E /* EmotionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7ED5ED2DCF74F5002A6B2E /* EmotionsButton.swift */; };
 		FC7ED5F02DCF7544002A6B2E /* SelectedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7ED5EF2DCF7544002A6B2E /* SelectedComponent.swift */; };
 		FC92AB212DCDD7C30064EF6B /* MoodDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB1F2DCDD7C30064EF6B /* MoodDataModel.xcdatamodeld */; };
@@ -66,6 +68,8 @@
 		FC1A35CA2DCCE44E00CCE656 /* Emotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotions.swift; sourceTree = "<group>"; };
 		FC737FD72DD2002B001A28D6 /* defaultReasons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaultReasons.json; sourceTree = "<group>"; };
 		FC737FDB2DD20049001A28D6 /* MoodsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsVM.swift; sourceTree = "<group>"; };
+		FC7C1EF52DD34797007523CF /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		FC7C1EF72DD34C3F007523CF /* MoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCard.swift; sourceTree = "<group>"; };
 		FC7ED5ED2DCF74F5002A6B2E /* EmotionsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionsButton.swift; sourceTree = "<group>"; };
 		FC7ED5EF2DCF7544002A6B2E /* SelectedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedComponent.swift; sourceTree = "<group>"; };
 		FC92AB202DCDD7C30064EF6B /* MoodDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoodDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 		FC92AB432DCE18070064EF6B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FC7C1EF52DD34797007523CF /* HomeVM.swift */,
 				FC737FDB2DD20049001A28D6 /* MoodsVM.swift */,
 				FC92AB462DCE1B2F0064EF6B /* AddMoodVM.swift */,
 			);
@@ -247,6 +252,7 @@
 		FC92AB482DCE32080064EF6B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FC7C1EF72DD34C3F007523CF /* MoodCard.swift */,
 				FCC40EE22DD0B86700BD2A89 /* ReasonsButton.swift */,
 				FC7ED5EF2DCF7544002A6B2E /* SelectedComponent.swift */,
 				FC7ED5ED2DCF74F5002A6B2E /* EmotionsButton.swift */,
@@ -394,10 +400,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC1A35C92DCCE41600CCE656 /* MoodTypes.swift in Sources */,
+				FC7C1EF62DD34799007523CF /* HomeVM.swift in Sources */,
 				FC7ED5EE2DCF74F5002A6B2E /* EmotionsButton.swift in Sources */,
 				FC92AB3C2DCDDFBC0064EF6B /* MockData.swift in Sources */,
 				FC92AB472DCE1B2F0064EF6B /* AddMoodVM.swift in Sources */,
 				FC1A35B72DCCE2D900CCE656 /* HomeView.swift in Sources */,
+				FC7C1EF82DD34C3F007523CF /* MoodCard.swift in Sources */,
 				FC92AB272DCDD8770064EF6B /* ReasonEntity.swift in Sources */,
 				FC1A35B82DCCE2D900CCE656 /* MoodTrackerApp.swift in Sources */,
 				FC737FDC2DD20049001A28D6 /* MoodsVM.swift in Sources */,

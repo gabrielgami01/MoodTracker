@@ -7,11 +7,16 @@
 
 import Foundation
 
-struct Mood {
+struct Mood: Identifiable {
     let id: UUID
     let type: MoodTypes
     let emotions: [Emotions]
     let reason: Reason
     let note: String
     let date: Date
+    
+    var emotionsList: String {
+        emotions.map { $0.rawValue }
+            .formatted(.list(type: .and))
+    }
 }

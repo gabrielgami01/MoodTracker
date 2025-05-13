@@ -14,11 +14,15 @@ final class MoodsVM: ObservableObject {
     
     init(repository: Repository = RepositoryImpl.shared) {
         self.repository = repository
+        fetchMoods()
     }
     
-    func preloadData() async {
+    @Published var moods: [Mood] = []
+    
+    func fetchMoods() {
         do {
-            try await repository.preloadDefaultReasons()
+            let result = try repository.fetchMoods()
+            moods = result
         } catch {
             print(error.localizedDescription)
         }

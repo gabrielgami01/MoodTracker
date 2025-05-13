@@ -10,19 +10,35 @@ import Charts
 
 struct HomeView: View {
     @AppStorage("firstTime") private var firstTime: Bool = true
-    @ObservedObject var vm = MoodsVM()
+    @EnvironmentObject private var moodsVM: MoodsVM
+    @ObservedObject var vm = HomeVM()
     
     @State private var showAddMood = false
     
     var body: some View {
         ScrollView {
+            LazyVStack(spacing: 20) {
+                ForEach(moodsVM.moods) { mood in
+                    MoodCard(mood: mood)
+                }
+            }
+        }
+        .overlay(alignment: .bottomTrailing) {
             Button {
                 showAddMood.toggle()
             } label: {
-                Text("Add mood")
+                Image(systemName: "plus")
+                    .font(.title)
+                    .foregroundStyle(.white)
+                    .padding()
+                    .background(Color.accent, in: .circle)
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.plain)
         }
+        .padding(.horizontal)
+        .background(Color.background)
+        .scrollIndicators(.hidden)
+        
         .fullScreenCover(isPresented: $showAddMood) {
             AddMoodView()
         }
@@ -36,7 +52,8 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(vm: HomeVM(repository: MockRepository()))
+        .environmentObject(MoodsVM(repository: MockRepository()))
 }
 
 struct DayCard: View {

@@ -180,27 +180,3 @@ struct AddMoodView: View {
 #Preview {
     AddMoodView(vm: AddMoodVM(repository: MockRepository()))
 }
-
-struct ReasonsButton: View {
-    let reason: Reason
-    let isSelected: Bool
-    let onSelect: () -> Void
-    
-    var body: some View {
-        Button {
-            onSelect()
-        } label: {
-            Text(reason.name)
-                .lineLimit(1)
-                .padding(12)
-                .frame(width: 110)
-                .background(isSelected ? .white : .clear, in: .capsule)
-                .background {
-                    Capsule()
-                        .stroke(Color.accent, lineWidth: 2)
-                }
-                
-        }
-        .buttonStyle(.plain)
-    }
-}

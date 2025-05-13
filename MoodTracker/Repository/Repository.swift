@@ -16,7 +16,13 @@ extension Repository {
     func fetchMoods(date: Date = .now) throws -> [Mood] {
         let context = persistenceController.viewContext
         
+        let startOfDay = Calendar.current.startOfDay(for: date)
+        guard let startOfNextDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay) else {
+           return []
+        }
+        
         let request = MoodEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "date >= %@ AND date < %@", startOfDay as NSDate, startOfNextDay as NSDate)
         request.sortDescriptors = [NSSortDescriptor(keyPath: \MoodEntity.date, ascending: false)]
         
         let results = try context.fetch(request).compactMap(\.toMood)

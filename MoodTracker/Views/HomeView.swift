@@ -21,20 +21,7 @@ struct HomeView: View {
             VStack(spacing: 32) {
                 DateSelector(selectedDate: $vm.date)
                 
-                VStack(alignment: .leading, spacing: 24) {
-                    Text("Mood chart")
-                        .font(.headline)
-                    
-                    HStack(spacing: 24) {
-                        ForEach(moodStore.moods) { mood in
-                            MoodBar(mood: mood)
-                                .frame(maxWidth: .infinity)
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.white, in: .rect(cornerRadius: 24))
+                MoodsChart(moods: moodStore.moods)
                 
                 LazyVStack(spacing: 20) {
                     ForEach(moodStore.moods) { mood in
@@ -63,7 +50,6 @@ struct HomeView: View {
             }
             .buttonStyle(.plain)
         }
-        .padding([.horizontal])
         .sheet(isPresented: $showDeleteSheet) {
             DeleteSheet(isPresented: $showDeleteSheet, iconName: "trash.circle.fill",
                         title: "Delete existing mood?", subtitle: "This will permanently delete your mood data.") {
@@ -73,8 +59,6 @@ struct HomeView: View {
                 vm.selectedMood = nil
             }
         }
-        .background(Color.background)
-        .scrollIndicators(.hidden)
         .fullScreenCover(isPresented: $showAddMood) {
             MoodEditorView(vm: MoodEditorVM(mood: vm.selectedMood))
         }
@@ -87,6 +71,9 @@ struct HomeView: View {
         .onChange(of: vm.date) { newValue in
             moodStore.fetchMoods(date: newValue)
         }
+        .padding(.horizontal)
+        .background(Color.background)
+        .scrollIndicators(.hidden)
     }
 }
 

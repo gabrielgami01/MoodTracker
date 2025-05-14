@@ -7,6 +7,29 @@
 
 import SwiftUI
 
+struct MoodsChart: View {
+    let moods: [Mood]
+    
+    var body: some View {
+        if !moods.isEmpty {
+            VStack(alignment: .leading, spacing: 24) {
+                Text("Mood chart")
+                    .font(.headline)
+                
+                HStack(spacing: 24) {
+                    ForEach(moods) { mood in
+                        MoodBar(mood: mood)
+                            .frame(maxWidth: .infinity)
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.white, in: .rect(cornerRadius: 24))
+        }
+    }
+}
+
 struct MoodBar: View {
     let mood: Mood
     
@@ -26,7 +49,9 @@ struct MoodBar: View {
                 VStack(spacing: 0) {
                     Image(mood.type.imageName)
                         .resizable()
-                        .frame(width: 28, height: 28)
+                        .scaledToFit()
+                        .frame(width: emojiSize)
+                        .scaleEffect(animation ? 1 : 0.1)
                     
                     Capsule()
                         .fill(mood.type.color.gradient)
@@ -38,7 +63,7 @@ struct MoodBar: View {
             Text(mood.date.formatted(.dateTime.hour().minute()))
                 .font(.footnote)
         }
-        .animation(.bouncy.speed(0.5), value: animation)
+        .animation(.bouncy.speed(0.3), value: animation)
         .task {
             animation.toggle()
         }
@@ -46,5 +71,10 @@ struct MoodBar: View {
 }
 
 #Preview {
-    MoodBar(mood: .mock1)
+    ZStack {
+        Color.background.ignoresSafeArea(edges: .all)
+        
+        MoodsChart(moods: Mood.mocks)
+            .padding()
+    }
 }

@@ -15,33 +15,9 @@ struct MoodEditorView: View {
     
     var body: some View {
         VStack(spacing: 24) {
-            ZStack {
-                Text("\(vm.currentPage)/4")
-                    .font(.headline)
-
-                HStack {
-                    HStack {
-                        Text(Date.now.formatted(.dateTime.month(.abbreviated).weekday().day()))
-                        
-                        Image(systemName: "calendar")
-                            .foregroundStyle(.accent)
-                    }
-                    .padding(8)
-                    .background(Color.white, in: .capsule)
-
-                    Spacer()
-
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .padding(8)
-                            .background(Color.white, in: .circle)
-                    }
-                    .buttonStyle(.plain)
-                }
+            MoodEditorHeader(currentPage: $vm.currentPage) {
+                dismiss()
             }
-            .frame(height: 40)
             
             if vm.currentPage == 1 {
                 firstPage

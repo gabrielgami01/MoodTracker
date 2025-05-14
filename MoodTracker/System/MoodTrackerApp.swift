@@ -14,6 +14,7 @@ struct MoodTrackerApp: App {
         WindowGroup {
             HomeView()
                 .environmentObject(moodsVM)
+                .preferredColorScheme(.light)
         }
     }
 }

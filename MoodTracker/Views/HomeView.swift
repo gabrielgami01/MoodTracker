@@ -18,7 +18,9 @@ struct HomeView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 32){
+            VStack(spacing: 32) {
+                DateSelector(selectedDate: $vm.date)
+                
                 VStack(alignment: .leading, spacing: 24) {
                     Text("Mood chart")
                         .font(.headline)
@@ -61,7 +63,7 @@ struct HomeView: View {
             }
             .buttonStyle(.plain)
         }
-        .padding(.horizontal)
+        .padding([.horizontal])
         .sheet(isPresented: $showDeleteSheet) {
             DeleteSheet(isPresented: $showDeleteSheet, iconName: "trash.circle.fill",
                         title: "Delete existing mood?", subtitle: "This will permanently delete your mood data.") {
@@ -82,6 +84,9 @@ struct HomeView: View {
                 firstTime = false
             }
         }
+        .onChange(of: vm.date) { newValue in
+            moodStore.fetchMoods(date: newValue)
+        }
     }
 }
 
@@ -90,56 +95,5 @@ struct HomeView: View {
         .environmentObject(MoodStore(repository: MockRepository()))
 }
 
-struct DayCard: View {
-    var body: some View {
-        VStack {
-            Text(Date().formatted(.dateTime.weekday()))
-                .font(.body)
-            
-            Text(Date().formatted(.dateTime.day(.defaultDigits)))
-                .font(.title3)
-                .bold()
-        }
-        .foregroundStyle(.white)
-        .padding()
-        .background(Color.accent, in: .capsule)
-    }
-}
 
-struct MoodBar: View {
-    let mood: Mood
-    
-    let fullHeight: CGFloat = 200
-    let barWidth: CGFloat  = 30
-    let emojiSize: CGFloat = 28
-    
-    @State private var animation = false
-    
-    var body: some View {
-        VStack {
-            ZStack(alignment: .bottom) {
-                Capsule()
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(width: barWidth, height: fullHeight)
-                
-                VStack(spacing: 0) {
-                    Image(mood.type.imageName)
-                        .resizable()
-                        .frame(width: 28, height: 28)
-                    
-                    Capsule()
-                        .fill(mood.type.color.gradient)
-                        .frame(width: barWidth, height: animation ? fullHeight * mood.type.numericValue : 0)
-                }
-                
-            }
-            
-            Text(mood.date.formatted(.dateTime.hour().minute()))
-                .font(.footnote)
-        }
-        .animation(.bouncy.speed(0.5), value: animation)
-        .task {
-            animation.toggle()
-        }
-    }
-}
+

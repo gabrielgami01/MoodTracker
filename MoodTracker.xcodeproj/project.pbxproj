@@ -22,6 +22,9 @@
 		FC7C1EFA2DD36CA4007523CF /* DeleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C1EF92DD36CA4007523CF /* DeleteSheet.swift */; };
 		FC7ED5EE2DCF74F5002A6B2E /* EmotionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7ED5ED2DCF74F5002A6B2E /* EmotionsButton.swift */; };
 		FC7ED5F02DCF7544002A6B2E /* SelectedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7ED5EF2DCF7544002A6B2E /* SelectedComponent.swift */; };
+		FC8D64A22DD49506002CD0F9 /* MoodBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D64A12DD49506002CD0F9 /* MoodBar.swift */; };
+		FC8D64A52DD49A95002CD0F9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D64A42DD49A95002CD0F9 /* Date.swift */; };
+		FC8D64A82DD4A110002CD0F9 /* DateSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D64A72DD4A110002CD0F9 /* DateSelector.swift */; };
 		FC92AB212DCDD7C30064EF6B /* MoodDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB1F2DCDD7C30064EF6B /* MoodDataModel.xcdatamodeld */; };
 		FC92AB232DCDD82E0064EF6B /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB222DCDD82C0064EF6B /* Reason.swift */; };
 		FC92AB252DCDD8480064EF6B /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB242DCDD8460064EF6B /* Mood.swift */; };
@@ -74,6 +77,9 @@
 		FC7C1EF92DD36CA4007523CF /* DeleteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSheet.swift; sourceTree = "<group>"; };
 		FC7ED5ED2DCF74F5002A6B2E /* EmotionsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionsButton.swift; sourceTree = "<group>"; };
 		FC7ED5EF2DCF7544002A6B2E /* SelectedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedComponent.swift; sourceTree = "<group>"; };
+		FC8D64A12DD49506002CD0F9 /* MoodBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBar.swift; sourceTree = "<group>"; };
+		FC8D64A42DD49A95002CD0F9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		FC8D64A72DD4A110002CD0F9 /* DateSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelector.swift; sourceTree = "<group>"; };
 		FC92AB202DCDD7C30064EF6B /* MoodDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoodDataModel.xcdatamodel; sourceTree = "<group>"; };
 		FC92AB222DCDD82C0064EF6B /* Reason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reason.swift; sourceTree = "<group>"; };
 		FC92AB242DCDD8460064EF6B /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
@@ -144,6 +150,7 @@
 				FC92AB2E2DCDDB260064EF6B /* Repository */,
 				FC92AB1E2DCDD7B20064EF6B /* DataModel */,
 				FC1A35C62DCCE40C00CCE656 /* Model */,
+				FC8D64A32DD49A8C002CD0F9 /* Extensions */,
 				FC1A35C22DCCE2F700CCE656 /* System */,
 				FC737FD62DD20028001A28D6 /* Resources */,
 				FC92AB382DCDDF950064EF6B /* PreviewContent */,
@@ -213,6 +220,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		FC8D64A32DD49A8C002CD0F9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FC8D64A42DD49A95002CD0F9 /* Date.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FC92AB1E2DCDD7B20064EF6B /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +269,8 @@
 		FC92AB482DCE32080064EF6B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FC8D64A72DD4A110002CD0F9 /* DateSelector.swift */,
+				FC8D64A12DD49506002CD0F9 /* MoodBar.swift */,
 				FC7C1EF92DD36CA4007523CF /* DeleteSheet.swift */,
 				FC7C1EF72DD34C3F007523CF /* MoodCard.swift */,
 				FCC40EE22DD0B86700BD2A89 /* ReasonsButton.swift */,
@@ -408,6 +425,7 @@
 				FC7ED5EE2DCF74F5002A6B2E /* EmotionsButton.swift in Sources */,
 				FC92AB3C2DCDDFBC0064EF6B /* MockData.swift in Sources */,
 				FC92AB472DCE1B2F0064EF6B /* MoodEditorVM.swift in Sources */,
+				FC8D64A82DD4A110002CD0F9 /* DateSelector.swift in Sources */,
 				FC1A35B72DCCE2D900CCE656 /* HomeView.swift in Sources */,
 				FC7C1EF82DD34C3F007523CF /* MoodCard.swift in Sources */,
 				FC92AB272DCDD8770064EF6B /* ReasonEntity.swift in Sources */,
@@ -417,12 +435,14 @@
 				FC92AB252DCDD8480064EF6B /* Mood.swift in Sources */,
 				FC92AB302DCDDB2B0064EF6B /* Repository.swift in Sources */,
 				FC92AB4D2DCE32440064EF6B /* AddMoodHeader.swift in Sources */,
+				FC8D64A52DD49A95002CD0F9 /* Date.swift in Sources */,
 				FC92AB232DCDD82E0064EF6B /* Reason.swift in Sources */,
 				FC1A35CB2DCCE44E00CCE656 /* Emotions.swift in Sources */,
 				FCC40EE32DD0B86700BD2A89 /* ReasonsButton.swift in Sources */,
 				FC92AB212DCDD7C30064EF6B /* MoodDataModel.xcdatamodeld in Sources */,
 				FC7ED5F02DCF7544002A6B2E /* SelectedComponent.swift in Sources */,
 				FC92AB292DCDD8B60064EF6B /* MoodEntity.swift in Sources */,
+				FC8D64A22DD49506002CD0F9 /* MoodBar.swift in Sources */,
 				FC92AB4A2DCE32130064EF6B /* MoodSelector.swift in Sources */,
 				FC92AB3E2DCDDFC90064EF6B /* MockRepository.swift in Sources */,
 				FC92AB2D2DCDDB0E0064EF6B /* PersistenceController.swift in Sources */,

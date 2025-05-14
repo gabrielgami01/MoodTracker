@@ -13,7 +13,7 @@ protocol Repository {
 }
 
 extension Repository {
-    func fetchMoods(date: Date = .now) throws -> [Mood] {
+    func fetchMoods(date: Date) throws -> [Mood] {
         let context = persistenceController.viewContext
         
         let startOfDay = Calendar.current.startOfDay(for: date)

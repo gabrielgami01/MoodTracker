@@ -15,6 +15,8 @@ final class HomeVM: ObservableObject {
     }
     
     @Published var selectedMood: Mood?
+
+    @Published var date = Date.now
     
     func preloadData() async {
         do {

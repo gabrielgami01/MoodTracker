@@ -23,7 +23,7 @@ extension Repository {
         
         let request = MoodEntity.fetchRequest()
         request.predicate = NSPredicate(format: "date >= %@ AND date < %@", startOfDay as NSDate, startOfNextDay as NSDate)
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \MoodEntity.date, ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \MoodEntity.date, ascending: true)]
         
         let results = try context.fetch(request).compactMap(\.toMood)
         return results

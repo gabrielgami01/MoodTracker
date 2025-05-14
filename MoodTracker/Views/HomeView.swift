@@ -18,16 +18,33 @@ struct HomeView: View {
     
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 20) {
-                ForEach(moodStore.moods) { mood in
-                    MoodCard(mood: mood) {
-                        vm.selectedMood = mood
-                        withAnimation {
-                            showDeleteSheet.toggle()
+            VStack(spacing: 32){
+                VStack(alignment: .leading, spacing: 24) {
+                    Text("Mood chart")
+                        .font(.headline)
+                    
+                    HStack(spacing: 24) {
+                        ForEach(moodStore.moods) { mood in
+                            MoodBar(mood: mood)
+                                .frame(maxWidth: .infinity)
                         }
-                    } onEdit: {
-                        vm.selectedMood = mood
-                        showAddMood.toggle()
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.white, in: .rect(cornerRadius: 24))
+                
+                LazyVStack(spacing: 20) {
+                    ForEach(moodStore.moods) { mood in
+                        MoodCard(mood: mood) {
+                            vm.selectedMood = mood
+                            withAnimation {
+                                showDeleteSheet.toggle()
+                            }
+                        } onEdit: {
+                            vm.selectedMood = mood
+                            showAddMood.toggle()
+                        }
                     }
                 }
             }
@@ -86,5 +103,43 @@ struct DayCard: View {
         .foregroundStyle(.white)
         .padding()
         .background(Color.accent, in: .capsule)
+    }
+}
+
+struct MoodBar: View {
+    let mood: Mood
+    
+    let fullHeight: CGFloat = 200
+    let barWidth: CGFloat  = 30
+    let emojiSize: CGFloat = 28
+    
+    @State private var animation = false
+    
+    var body: some View {
+        VStack {
+            ZStack(alignment: .bottom) {
+                Capsule()
+                    .fill(Color.gray.opacity(0.2))
+                    .frame(width: barWidth, height: fullHeight)
+                
+                VStack(spacing: 0) {
+                    Image(mood.type.imageName)
+                        .resizable()
+                        .frame(width: 28, height: 28)
+                    
+                    Capsule()
+                        .fill(mood.type.color.gradient)
+                        .frame(width: barWidth, height: animation ? fullHeight * mood.type.numericValue : 0)
+                }
+                
+            }
+            
+            Text(mood.date.formatted(.dateTime.hour().minute()))
+                .font(.footnote)
+        }
+        .animation(.bouncy.speed(0.5), value: animation)
+        .task {
+            animation.toggle()
+        }
     }
 }

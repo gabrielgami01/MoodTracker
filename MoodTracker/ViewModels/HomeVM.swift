@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 final class HomeVM: ObservableObject {
     let repository: Repository
     

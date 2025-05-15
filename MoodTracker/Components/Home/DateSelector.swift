@@ -9,23 +9,60 @@ import SwiftUI
 
 struct DateSelector: View {
     @Binding var selectedDate: Date
-    
-    let dates: [Date] = Date.currentWeekDates()
-    
+
+    @State private var referenceDate: Date = .now
     @Namespace private var namespace
 
+    private var weekDates: [Date] {
+        Date.weekDates(containing: referenceDate)
+    }
+
+    private var isCurrentWeek: Bool {
+        Calendar(identifier: .iso8601).isDate(referenceDate, equalTo: .now, toGranularity: .weekOfYear)
+    }
+
     var body: some View {
-        HStack(spacing: 8) {
-            ForEach(dates, id: \.self) { date in
-                DayItemView(date: date, isSelected: Calendar.current.isDate(date, inSameDayAs: selectedDate), namespace: namespace)
-                    .onTapGesture {
-                        withAnimation {
+        HStack {
+            Button {
+                withAnimation {
+                    referenceDate = Calendar(identifier: .iso8601).date(byAdding: .weekOfYear, value: -1, to: referenceDate) ?? referenceDate
+                    if !Calendar.current.isDate(selectedDate, equalTo: referenceDate, toGranularity: .weekOfYear) {
+                        selectedDate = referenceDate
+                    }
+                }
+            } label: {
+                Image(systemName: "chevron.left.circle.fill")
+                    .font(.title2)
+            }
+            
+            Spacer()
+            
+            HStack(spacing: 4) {
+                ForEach(weekDates, id: \.self) { date in
+                    DayItemView(date: date, isSelected: Calendar.current.isDate(date, inSameDayAs: selectedDate), namespace: namespace) {
+                        withAnimation(.easeInOut) {
                             selectedDate = date
                         }
                     }
+                }
             }
-        }
+            
+            Spacer()
 
+            Button {
+                withAnimation {
+                    referenceDate = Calendar(identifier: .iso8601).date(byAdding: .weekOfYear, value: 1, to: referenceDate) ?? referenceDate
+                    if !Calendar.current.isDate(selectedDate,equalTo: referenceDate, toGranularity: .weekOfYear) {
+                        selectedDate = referenceDate
+                    }
+                }
+            } label: {
+                Image(systemName: "chevron.right.circle.fill")
+                    .font(.title2)
+            }
+            .disabled(isCurrentWeek)
+        }
+        .frame(maxWidth: .infinity)
     }
 }
 
@@ -33,6 +70,7 @@ struct DayItemView: View {
     let date: Date
     let isSelected: Bool
     let namespace: Namespace.ID
+    let onTap: () -> Void
 
     var body: some View {
         VStack(spacing: 4) {
@@ -43,8 +81,8 @@ struct DayItemView: View {
                 .font(.headline)
         }
         .foregroundStyle(isSelected ? .white : .primary)
-        .padding(.vertical, 8)
-        .padding(.horizontal, 12)
+        .padding(.vertical, 12)
+        .padding(.horizontal, 8)
         .background {
             if isSelected {
                 Capsule()
@@ -52,13 +90,22 @@ struct DayItemView: View {
                     .matchedGeometryEffect(id: "SELECTED_DATE", in: namespace)
             } else {
                 Capsule()
-                    .fill(Color.gray.opacity(0.2))
+                    .fill(Color.white)
             }
+        }
+        .frame(width: 40)
+        .onTapGesture {
+            onTap()
         }
 
     }
 }
 
 #Preview {
-    DateSelector(selectedDate: .constant(.now))
+    ZStack {
+        Color.background.ignoresSafeArea(edges: .all)
+        
+        DateSelector(selectedDate: .constant(.now))
+            .padding()
+    }
 }

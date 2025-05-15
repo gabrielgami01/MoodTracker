@@ -8,14 +8,10 @@
 import Foundation
 
 extension Date {
-    static func currentWeekDates(calendar: Calendar = Calendar(identifier: .iso8601)) -> [Date] {
-        // Obtenemos el intervalo de la semana ISO (lunes–domingo)
-        guard let weekInterval = calendar.dateInterval(of: .weekOfYear, for: Date()) else {
-            return []
-        }
-        // Generamos los 7 días empezando por weekInterval.start (lunes)
-        return (0..<7).compactMap { offset in
-            calendar.date(byAdding: .day, value: offset, to: weekInterval.start)
+    static func weekDates(containing date: Date, calendar: Calendar = Calendar(identifier: .iso8601)) -> [Date] {
+        guard let weekInterval = calendar.dateInterval(of: .weekOfYear, for: date) else { return [] }
+        return (0..<7).compactMap {
+            calendar.date(byAdding: .day, value: $0, to: weekInterval.start)
         }
     }
 }

@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import Charts
 
 struct HomeView: View {
     @AppStorage("firstTime") private var firstTime: Bool = true
     @EnvironmentObject private var moodStore: MoodStore
-    @ObservedObject var vm = HomeVM()
+    @StateObject var vm = HomeVM()
     
     @State private var showAddMood = false
     @State private var showDeleteSheet = false
@@ -75,8 +74,8 @@ struct HomeView: View {
                 firstTime = false
             }
         }
-        .onChange(of: vm.selectedDate) { newValue in
-            moodStore.fetchMoods(date: newValue)
+        .onChange(of: vm.selectedDate) { newDate in
+            moodStore.fetchMoods(date: newDate)
         }
         .padding(.horizontal)
         .background(Color.background)

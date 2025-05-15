@@ -4,8 +4,6 @@
 //
 //  Created by Gabriel Garcia Millan on 12/5/25.
 //
-
-import Foundation
 import SwiftUI
 
 @MainActor

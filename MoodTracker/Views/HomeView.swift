@@ -39,7 +39,7 @@ struct HomeView: View {
             VStack(spacing: 32) {
                 DateSelector(selectedDate: $vm.selectedDate)
                 
-                MoodsChart(moods: moodStore.moods)
+                MoodsChart(moods: moodStore.moods.reversed())
                 
                 LazyVStack(spacing: 20) {
                     ForEach(moodStore.moods) { mood in

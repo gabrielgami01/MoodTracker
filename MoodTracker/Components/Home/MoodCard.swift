@@ -23,7 +23,7 @@ struct MoodCard: View {
                     Text(mood.type.rawValue)
                         .font(.headline)
                     
-                    Text(mood.date.formatted(.dateTime.hour().minute(.twoDigits)))
+                    Text(mood.date, format: .dateTime.hour().minute(.twoDigits))
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }

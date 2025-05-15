@@ -17,6 +17,25 @@ struct HomeView: View {
     
     var body: some View {
         ScrollView {
+            
+            HStack {
+                Text("Mood Tracker")
+                    .font(.title)
+                    .bold()
+                
+                Spacer()
+                
+                HStack {
+                    Text(vm.selectedDate, format: .dateTime.year().month())
+                        .font(.body)
+                    
+                    Image(systemName: "calendar")
+                        .foregroundStyle(.accent)
+                }
+                .padding(8)
+                .background(Color.white, in: .capsule)
+            }
+            
             VStack(spacing: 32) {
                 DateSelector(selectedDate: $vm.selectedDate)
                 

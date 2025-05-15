@@ -18,7 +18,8 @@ struct MoodEditorHeader: View {
             
             HStack {
                 HStack {
-                    Text(Date.now.formatted(.dateTime.month(.abbreviated).weekday().day()))
+                    Text(Date.now, format: .dateTime.month(.abbreviated).weekday().day())
+                        .font(.body)
                     
                     Image(systemName: "calendar")
                         .foregroundStyle(.accent)

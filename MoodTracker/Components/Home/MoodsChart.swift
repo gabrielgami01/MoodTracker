@@ -60,7 +60,7 @@ struct MoodBar: View {
                 
             }
             
-            Text(mood.date.formatted(.dateTime.hour().minute()))
+            Text(mood.date, format: .dateTime.hour().minute())
                 .font(.footnote)
         }
         .animation(.bouncy.speed(0.3), value: animation)

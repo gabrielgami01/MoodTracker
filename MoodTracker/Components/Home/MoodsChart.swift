@@ -46,18 +46,16 @@ struct MoodBar: View {
                     .fill(Color.gray.opacity(0.2))
                     .frame(width: barWidth, height: fullHeight)
                 
-                VStack(spacing: 0) {
-                    Image(mood.type.imageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: emojiSize)
-                        .scaleEffect(animation ? 1 : 0.1)
-                    
-                    Capsule()
-                        .fill(mood.type.color.gradient)
-                        .frame(width: barWidth, height: animation ? fullHeight * mood.type.numericValue : 0)
-                }
-                
+                Capsule()
+                    .fill(mood.type.color.gradient)
+                    .overlay(alignment: .top) {
+                        Image(mood.type.imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: emojiSize)
+                            .scaleEffect(animation ? 1 : 0.1)
+                    }
+                    .frame(width: barWidth, height: animation ? fullHeight * mood.type.numericValue : 0)
             }
             
             Text(mood.date, format: .dateTime.hour().minute())

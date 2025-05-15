@@ -8,18 +8,18 @@
 import Foundation
 
 extension Mood {
-    static let mocks = [Mood.mock1, Mood.mock2, Mood.mock3]
+    static let mocks: [Mood] = [.mock1, .mock2, .mock3, .mock4, .mock5]
     
     static let mock1 = Mood(id: UUID(),
-                            type: .good,
+                            type: .awesome,
                             emotions: [.peaceful, .happy],
                             reason: .mock1,
                             note: "Nice 8 hours of sleep!",
                             date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
                                                                              month: Calendar.current.component(.month, from: Date.now),
                                                                              day: Calendar.current.component(.day, from: Date.now),
-                                                                             hour: 09,
-                                                                             minute: 00))!
+                                                                             hour: 07,
+                                                                             minute: 15))!
     )
     static let mock2 = Mood(id: UUID(),
                             type: .neutral,
@@ -29,8 +29,8 @@ extension Mood {
                             date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
                                                                              month: Calendar.current.component(.month, from: Date.now),
                                                                              day: Calendar.current.component(.day, from: Date.now),
-                                                                             hour: 16,
-                                                                             minute: 00))!
+                                                                             hour: 11,
+                                                                             minute: 30))!
     )
     static let mock3 = Mood(id: UUID(),
                             type: .terrible,
@@ -40,13 +40,35 @@ extension Mood {
                             date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
                                                                              month: Calendar.current.component(.month, from: Date.now),
                                                                              day: Calendar.current.component(.day, from: Date.now),
-                                                                             hour: 21,
-                                                                             minute: 15))!
+                                                                             hour: 15,
+                                                                             minute: 30))!
+    )
+    static let mock4 = Mood(id: UUID(),
+                            type: .good,
+                            emotions: [.cool],
+                            reason: .mock4,
+                            note: "Nice day at the gym",
+                            date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
+                                                                             month: Calendar.current.component(.month, from: Date.now),
+                                                                             day: Calendar.current.component(.day, from: Date.now),
+                                                                             hour: 19,
+                                                                             minute: 00))!
+    )
+    static let mock5 = Mood(id: UUID(),
+                            type: .bad,
+                            emotions: [.angry],
+                            reason: .mock5,
+                            note: "Football team loss",
+                            date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
+                                                                             month: Calendar.current.component(.month, from: Date.now),
+                                                                             day: Calendar.current.component(.day, from: Date.now),
+                                                                             hour: 22,
+                                                                             minute: 30))!
     )
 }
 
 extension Reason {
-    static let mocks = [Reason.mock1, Reason.mock2, Reason.mock3]
+    static let mocks: [Reason] = [.mock1, .mock2, .mock3]
     
     static let mock1 = Reason(id: UUID(),
                               name: "Sleep")
@@ -54,4 +76,8 @@ extension Reason {
                               name: "Work")
     static let mock3 = Reason(id: UUID(),
                               name: "Health")
+    static let mock4 = Reason(id: UUID(),
+                              name: "Hobbies")
+    static let mock5 = Reason(id: UUID(),
+                              name: "Sports")
 }

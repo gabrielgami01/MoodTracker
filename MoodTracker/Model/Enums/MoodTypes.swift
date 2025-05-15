@@ -23,13 +23,13 @@ enum MoodTypes: String, CaseIterable, Identifiable {
     var numericValue: Double {
         switch self {
             case .terrible:
-                return 0.1
+                return 0.2
             case .bad:
-                return 0.25
+                return 0.4
             case .neutral:
-                return 0.5
+                return 0.6
             case .good:
-                return 0.75
+                return 0.8
             case .awesome:
                 return 1
         }

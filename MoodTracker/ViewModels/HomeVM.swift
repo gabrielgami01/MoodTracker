@@ -16,7 +16,13 @@ final class HomeVM: ObservableObject {
     
     @Published var selectedMood: Mood?
 
-    @Published var date = Date.now
+    @Published var selectedDate = Date.now
+    var isToday: Bool {
+        Calendar.current.isDate(selectedDate, inSameDayAs: .now)
+    }
+    var isFuture: Bool {
+        Calendar.current.startOfDay(for: selectedDate) > Calendar.current.startOfDay(for: .now)
+    }
     
     func preloadData() async {
         do {

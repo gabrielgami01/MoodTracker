@@ -19,7 +19,7 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 32) {
-                DateSelector(selectedDate: $vm.date)
+                DateSelector(selectedDate: $vm.selectedDate)
                 
                 MoodsChart(moods: moodStore.moods)
                 
@@ -39,16 +39,23 @@ struct HomeView: View {
             }
         }
         .overlay(alignment: .bottomTrailing) {
-            Button {
-                showAddMood.toggle()
-            } label: {
-                Image(systemName: "plus")
-                    .font(.title)
-                    .foregroundStyle(.white)
-                    .padding()
-                    .background(Color.accent, in: .circle)
+            if vm.isToday {
+                Button {
+                    showAddMood.toggle()
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.title)
+                        .foregroundStyle(.white)
+                        .padding()
+                        .background(Color.accent, in: .circle)
+                }
+                .buttonStyle(.plain)
             }
-            .buttonStyle(.plain)
+        }
+        .overlay {
+            if moodStore.moods.isEmpty {
+                EmptyMoodCard(selectedDate: vm.selectedDate, isFutureDate: vm.isFuture)
+            }
         }
         .sheet(isPresented: $showDeleteSheet) {
             DeleteSheet(isPresented: $showDeleteSheet, iconName: "trash.circle.fill",
@@ -68,7 +75,7 @@ struct HomeView: View {
                 firstTime = false
             }
         }
-        .onChange(of: vm.date) { newValue in
+        .onChange(of: vm.selectedDate) { newValue in
             moodStore.fetchMoods(date: newValue)
         }
         .padding(.horizontal)
@@ -81,6 +88,3 @@ struct HomeView: View {
    HomeView(vm: HomeVM(repository: MockRepository()))
         .environmentObject(MoodStore(repository: MockRepository()))
 }
-
-
-

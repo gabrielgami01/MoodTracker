@@ -26,6 +26,7 @@
 		FC8D64A52DD49A95002CD0F9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D64A42DD49A95002CD0F9 /* Date.swift */; };
 		FC8D64A82DD4A110002CD0F9 /* DateSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D64A72DD4A110002CD0F9 /* DateSelector.swift */; };
 		FC8D64AD2DD4A57D002CD0F9 /* MoodEditorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D64AC2DD4A57D002CD0F9 /* MoodEditorHeader.swift */; };
+		FC8D64AF2DD4AC67002CD0F9 /* EmptyMoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D64AE2DD4AC67002CD0F9 /* EmptyMoodCard.swift */; };
 		FC92AB212DCDD7C30064EF6B /* MoodDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB1F2DCDD7C30064EF6B /* MoodDataModel.xcdatamodeld */; };
 		FC92AB232DCDD82E0064EF6B /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB222DCDD82C0064EF6B /* Reason.swift */; };
 		FC92AB252DCDD8480064EF6B /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC92AB242DCDD8460064EF6B /* Mood.swift */; };
@@ -82,6 +83,7 @@
 		FC8D64A42DD49A95002CD0F9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		FC8D64A72DD4A110002CD0F9 /* DateSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelector.swift; sourceTree = "<group>"; };
 		FC8D64AC2DD4A57D002CD0F9 /* MoodEditorHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEditorHeader.swift; sourceTree = "<group>"; };
+		FC8D64AE2DD4AC67002CD0F9 /* EmptyMoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMoodCard.swift; sourceTree = "<group>"; };
 		FC92AB202DCDD7C30064EF6B /* MoodDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoodDataModel.xcdatamodel; sourceTree = "<group>"; };
 		FC92AB222DCDD82C0064EF6B /* Reason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reason.swift; sourceTree = "<group>"; };
 		FC92AB242DCDD8460064EF6B /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				FC8D64A72DD4A110002CD0F9 /* DateSelector.swift */,
 				FC8D64A12DD49506002CD0F9 /* MoodsChart.swift */,
 				FC7C1EF72DD34C3F007523CF /* MoodCard.swift */,
+				FC8D64AE2DD4AC67002CD0F9 /* EmptyMoodCard.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				FC7C1EF82DD34C3F007523CF /* MoodCard.swift in Sources */,
 				FC92AB272DCDD8770064EF6B /* ReasonEntity.swift in Sources */,
 				FC1A35B82DCCE2D900CCE656 /* MoodTrackerApp.swift in Sources */,
+				FC8D64AF2DD4AC67002CD0F9 /* EmptyMoodCard.swift in Sources */,
 				FC737FDC2DD20049001A28D6 /* MoodStore.swift in Sources */,
 				FC92AB422DCDEB540064EF6B /* MoodEditorView.swift in Sources */,
 				FC92AB252DCDD8480064EF6B /* Mood.swift in Sources */,

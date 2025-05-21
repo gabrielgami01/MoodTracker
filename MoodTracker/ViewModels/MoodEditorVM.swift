@@ -56,7 +56,7 @@ final class MoodEditorVM: ObservableObject {
     func createMood() -> Mood? {
         guard let reason = selectedReason.first else { return nil }
         
-        let newMood = Mood(id: mood?.id ?? UUID(), type: selectedMood, emotions: selectedEmotions, reason: reason, note: note, date: .now)
+        let newMood = Mood(id: mood?.id ?? UUID(), type: selectedMood, emotions: selectedEmotions, reason: reason, note: note, timeSlot: TimeSlot.slot(for: .now)!, date: .now)
         
         return newMood
     }

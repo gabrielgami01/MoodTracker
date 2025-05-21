@@ -15,6 +15,7 @@ extension MoodEntity {
               let emotions = Emotions.parseAll(from: emotions as? [String]),
               let reason = reason?.toReason,
               let note = note,
+              let rawSlot = slot, let timeSlot = TimeSlot(rawValue: rawSlot),
               let date = date else { return nil}
         
         return Mood(id: id,
@@ -22,6 +23,7 @@ extension MoodEntity {
                     emotions: emotions,
                     reason: reason,
                     note: note,
+                    timeSlot: timeSlot,
                     date: date)
               
     }

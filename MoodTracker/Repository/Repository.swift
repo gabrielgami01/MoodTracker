@@ -50,6 +50,7 @@ extension Repository {
         newMoodEntity.emotions = mood.emotions.map(\.rawValue) as NSArray
         newMoodEntity.reason = reasonEntity
         newMoodEntity.note = mood.note
+        newMoodEntity.slot = mood.timeSlot.rawValue
         newMoodEntity.date = Date.now
         
         try context.save()

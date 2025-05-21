@@ -16,10 +16,13 @@ struct MoodsChart: View {
                 Text("Mood chart")
                     .font(.headline)
                 
-                HStack(spacing: 24) {
-                    ForEach(moods) { mood in
-                        MoodBar(mood: mood)
-                            .frame(maxWidth: .infinity)
+                HStack(spacing: 8) {
+                    ForEach(TimeSlot.allCases) { slot in
+                        if let mood = moods.first(where: { $0.timeSlot == slot }) {
+                            MoodBar(slot: slot, mood: mood)
+                        } else {
+                            MoodBar(slot: slot)
+                        }
                     }
                 }
             }
@@ -31,7 +34,8 @@ struct MoodsChart: View {
 }
 
 struct MoodBar: View {
-    let mood: Mood
+    let slot: TimeSlot
+    var mood: Mood? = nil
     
     let fullHeight: CGFloat = 200
     let barWidth: CGFloat  = 30
@@ -46,25 +50,28 @@ struct MoodBar: View {
                     .fill(Color.gray.opacity(0.2))
                     .frame(width: barWidth, height: fullHeight)
                 
-                Capsule()
-                    .fill(mood.type.color.gradient)
-                    .overlay(alignment: .top) {
-                        Image(mood.type.imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: emojiSize)
-                            .scaleEffect(animation ? 1 : 0.1)
-                    }
-                    .frame(width: barWidth, height: animation ? fullHeight * mood.type.numericValue : 0)
+                if let mood {
+                    Capsule()
+                        .fill(mood.type.color.gradient)
+                        .overlay(alignment: .top) {
+                            Image(mood.type.imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: emojiSize)
+                                .scaleEffect(animation ? 1 : 0.1)
+                        }
+                        .frame(width: barWidth, height: animation ? fullHeight * mood.type.numericValue : 0)
+                }
             }
             
-            Text(mood.date, format: .dateTime.hour().minute())
-                .font(.footnote)
+            Text(slot.rawValue)
+                .font(.caption)
         }
         .animation(.bouncy.speed(0.3), value: animation)
         .task {
             animation.toggle()
         }
+        .frame(maxWidth: .infinity)
     }
 }
 

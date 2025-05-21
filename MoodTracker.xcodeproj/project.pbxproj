@@ -17,6 +17,7 @@
 		FC1A35CB2DCCE44E00CCE656 /* Emotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35CA2DCCE44E00CCE656 /* Emotions.swift */; };
 		FC737FD82DD2002B001A28D6 /* defaultReasons.json in Resources */ = {isa = PBXBuildFile; fileRef = FC737FD72DD2002B001A28D6 /* defaultReasons.json */; };
 		FC737FDC2DD20049001A28D6 /* MoodStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC737FDB2DD20049001A28D6 /* MoodStore.swift */; };
+		FC7BCAE12DDDD93B008B9C62 /* TimeSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7BCAE02DDDD93B008B9C62 /* TimeSlot.swift */; };
 		FC7C1EF62DD34799007523CF /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C1EF52DD34797007523CF /* HomeVM.swift */; };
 		FC7C1EF82DD34C3F007523CF /* MoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C1EF72DD34C3F007523CF /* MoodCard.swift */; };
 		FC7C1EFA2DD36CA4007523CF /* DeleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C1EF92DD36CA4007523CF /* DeleteSheet.swift */; };
@@ -74,6 +75,7 @@
 		FC1A35CA2DCCE44E00CCE656 /* Emotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotions.swift; sourceTree = "<group>"; };
 		FC737FD72DD2002B001A28D6 /* defaultReasons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaultReasons.json; sourceTree = "<group>"; };
 		FC737FDB2DD20049001A28D6 /* MoodStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodStore.swift; sourceTree = "<group>"; };
+		FC7BCAE02DDDD93B008B9C62 /* TimeSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlot.swift; sourceTree = "<group>"; };
 		FC7C1EF52DD34797007523CF /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		FC7C1EF72DD34C3F007523CF /* MoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCard.swift; sourceTree = "<group>"; };
 		FC7C1EF92DD36CA4007523CF /* DeleteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSheet.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				FC1A35C82DCCE41600CCE656 /* MoodTypes.swift */,
 				FC1A35CA2DCCE44E00CCE656 /* Emotions.swift */,
+				FC7BCAE02DDDD93B008B9C62 /* TimeSlot.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				FC1A35B72DCCE2D900CCE656 /* HomeView.swift in Sources */,
 				FC7C1EF82DD34C3F007523CF /* MoodCard.swift in Sources */,
 				FC92AB272DCDD8770064EF6B /* ReasonEntity.swift in Sources */,
+				FC7BCAE12DDDD93B008B9C62 /* TimeSlot.swift in Sources */,
 				FC1A35B82DCCE2D900CCE656 /* MoodTrackerApp.swift in Sources */,
 				FC8D64AF2DD4AC67002CD0F9 /* EmptyMoodCard.swift in Sources */,
 				FC737FDC2DD20049001A28D6 /* MoodStore.swift in Sources */,

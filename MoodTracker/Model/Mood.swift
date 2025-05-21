@@ -13,6 +13,7 @@ struct Mood: Identifiable {
     let emotions: [Emotions]
     let reason: Reason
     let note: String
+    let timeSlot: TimeSlot
     let date: Date
     
     var emotionsList: String {

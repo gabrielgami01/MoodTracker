@@ -59,7 +59,11 @@ struct HomeView: View {
         .overlay(alignment: .bottomTrailing) {
             if vm.isToday {
                 Button {
-                    showAddMood.toggle()
+                    if let actualSlot = vm.actualTimeSlot, moodStore.moods.contains(where: { $0.timeSlot == actualSlot }) {
+                        // Mostrar aviso
+                    } else {
+                        showAddMood.toggle()
+                    }
                 } label: {
                     Image(systemName: "plus")
                         .font(.title)

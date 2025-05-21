@@ -15,6 +15,7 @@ extension Mood {
                             emotions: [.peaceful, .happy],
                             reason: .mock1,
                             note: "Nice 8 hours of sleep!",
+                            timeSlot: .dawn,
                             date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
                                                                              month: Calendar.current.component(.month, from: Date.now),
                                                                              day: Calendar.current.component(.day, from: Date.now),
@@ -26,17 +27,19 @@ extension Mood {
                             emotions: [.peaceful],
                             reason: .mock2,
                             note: "Normal day of work",
+                            timeSlot: .morning,
                             date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
                                                                              month: Calendar.current.component(.month, from: Date.now),
                                                                              day: Calendar.current.component(.day, from: Date.now),
                                                                              hour: 11,
-                                                                             minute: 30))!
+                                                                             minute: 00))!
     )
     static let mock3 = Mood(id: UUID(),
                             type: .terrible,
                             emotions: [.worried, .aww],
                             reason: .mock3,
                             note: "Big headache",
+                            timeSlot: .afternoon,
                             date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
                                                                              month: Calendar.current.component(.month, from: Date.now),
                                                                              day: Calendar.current.component(.day, from: Date.now),
@@ -48,10 +51,11 @@ extension Mood {
                             emotions: [.cool],
                             reason: .mock4,
                             note: "Nice day at the gym",
+                            timeSlot: .evening,
                             date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
                                                                              month: Calendar.current.component(.month, from: Date.now),
                                                                              day: Calendar.current.component(.day, from: Date.now),
-                                                                             hour: 19,
+                                                                             hour: 20,
                                                                              minute: 00))!
     )
     static let mock5 = Mood(id: UUID(),
@@ -59,10 +63,11 @@ extension Mood {
                             emotions: [.angry],
                             reason: .mock5,
                             note: "Football team loss",
+                            timeSlot: .night,
                             date: Calendar.current.date(from: DateComponents(year: Calendar.current.component(.year, from: Date.now),
                                                                              month: Calendar.current.component(.month, from: Date.now),
                                                                              day: Calendar.current.component(.day, from: Date.now),
-                                                                             hour: 22,
+                                                                             hour: 23,
                                                                              minute: 30))!
     )
 }

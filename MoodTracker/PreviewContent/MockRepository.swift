@@ -20,6 +20,7 @@ extension PersistenceController {
             newMoodEntity.type = mood.type.rawValue
             newMoodEntity.emotions = mood.emotions.map { $0.rawValue } as NSArray
             newMoodEntity.note = mood.note
+            newMoodEntity.slot = mood.timeSlot.rawValue
             newMoodEntity.date = mood.date
 
             let newReasonEntity = ReasonEntity(context: context)

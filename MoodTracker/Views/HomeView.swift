@@ -14,6 +14,7 @@ struct HomeView: View {
     
     @State private var showAddMood = false
     @State private var showDeleteSheet = false
+    @State private var showWarningSheet = false
     
     var body: some View {
         ScrollView {
@@ -60,7 +61,7 @@ struct HomeView: View {
             if vm.isToday {
                 Button {
                     if let actualSlot = vm.actualTimeSlot, moodStore.moods.contains(where: { $0.timeSlot == actualSlot }) {
-                        // Mostrar aviso
+                        showWarningSheet.toggle()
                     } else {
                         showAddMood.toggle()
                     }
@@ -80,13 +81,17 @@ struct HomeView: View {
             }
         }
         .sheet(isPresented: $showDeleteSheet) {
-            DeleteSheet(isPresented: $showDeleteSheet, iconName: "trash.circle.fill",
+            FloatingSheet(iconName: "trash.circle.fill",
                         title: "Delete existing mood?", subtitle: "This will permanently delete your mood data.") {
                 withAnimation {
                     moodStore.deleteMood(vm.selectedMood)
                 }
                 vm.selectedMood = nil
             }
+        }
+        .sheet(isPresented: $showWarningSheet) {
+            FloatingSheet(iconName: "exclamationmark.circle.fill",
+                        title: "Mood already logged", subtitle: "Try editing your existing mood instead.")
         }
         .fullScreenCover(isPresented: $showAddMood) {
             MoodEditorView(vm: MoodEditorVM(mood: vm.selectedMood))

@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-struct DeleteSheet: View {
-    @Binding var isPresented: Bool
+struct FloatingSheet: View {
     let iconName: String
     let title: String
     let subtitle: String
-    let onDelete: () -> Void
+    var onDelete: (() -> Void)?
+    
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         VStack(spacing: 24) {
@@ -38,26 +39,28 @@ struct DeleteSheet: View {
             }
 
             VStack(spacing: 16) {
-                Button {
-                    onDelete()
-                    isPresented.toggle()
-                } label: {
-                    Text("Delete")
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
+                if let onDelete {
+                    Button {
+                        onDelete()
+                        dismiss()
+                    } label: {
+                        Text("Delete")
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .buttonBorderShape(.capsule)
                 }
-                .buttonStyle(.borderedProminent)
-                .buttonBorderShape(.capsule)
                 
                 Button {
-                    isPresented.toggle()
+                    dismiss()
                 } label: {
-                    Text("Cancel")
+                    Text(onDelete != nil ? "Cancel" : "Close")
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(Color.secondary.opacity(0.5))
+                .tint(onDelete != nil ? .secondary.opacity(0.5) : .accent )
                 .buttonBorderShape(.capsule)
             }
                             
@@ -71,14 +74,19 @@ struct DeleteSheet: View {
         }
         .shadow(color: .black.opacity(0.1), radius: 8)
         .padding(.horizontal)
-        .presentationDetents([.height(300)])
+        .presentationDetents([.height(onDelete != nil ? 300 : 250)])
         .presentationCornerRadius(0)
         .presentationDragIndicator(.hidden)
         .presentationBackground(.clear)
     }
 }
 
-#Preview {
-    DeleteSheet(isPresented: .constant(true), iconName: "trash.circle.fill",
+#Preview("DeleteSheet") {
+    FloatingSheet(iconName: "trash.circle.fill",
                 title: "Delete existing mood?", subtitle: "This will permanently delete your mood data.") {}
+}
+
+#Preview("WarningSheet") {
+    FloatingSheet(iconName: "exclamationmark.circle.fill",
+                title: "Mood already logged", subtitle: "Try editing your existing mood instead.")
 }

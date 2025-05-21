@@ -20,7 +20,7 @@
 		FC7BCAE12DDDD93B008B9C62 /* TimeSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7BCAE02DDDD93B008B9C62 /* TimeSlot.swift */; };
 		FC7C1EF62DD34799007523CF /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C1EF52DD34797007523CF /* HomeVM.swift */; };
 		FC7C1EF82DD34C3F007523CF /* MoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C1EF72DD34C3F007523CF /* MoodCard.swift */; };
-		FC7C1EFA2DD36CA4007523CF /* DeleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C1EF92DD36CA4007523CF /* DeleteSheet.swift */; };
+		FC7C1EFA2DD36CA4007523CF /* FloatingSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7C1EF92DD36CA4007523CF /* FloatingSheet.swift */; };
 		FC7ED5EE2DCF74F5002A6B2E /* EmotionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7ED5ED2DCF74F5002A6B2E /* EmotionsButton.swift */; };
 		FC7ED5F02DCF7544002A6B2E /* SelectedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7ED5EF2DCF7544002A6B2E /* SelectedComponent.swift */; };
 		FC8D64A22DD49506002CD0F9 /* MoodsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8D64A12DD49506002CD0F9 /* MoodsChart.swift */; };
@@ -78,7 +78,7 @@
 		FC7BCAE02DDDD93B008B9C62 /* TimeSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlot.swift; sourceTree = "<group>"; };
 		FC7C1EF52DD34797007523CF /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		FC7C1EF72DD34C3F007523CF /* MoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCard.swift; sourceTree = "<group>"; };
-		FC7C1EF92DD36CA4007523CF /* DeleteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSheet.swift; sourceTree = "<group>"; };
+		FC7C1EF92DD36CA4007523CF /* FloatingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingSheet.swift; sourceTree = "<group>"; };
 		FC7ED5ED2DCF74F5002A6B2E /* EmotionsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionsButton.swift; sourceTree = "<group>"; };
 		FC7ED5EF2DCF7544002A6B2E /* SelectedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedComponent.swift; sourceTree = "<group>"; };
 		FC8D64A12DD49506002CD0F9 /* MoodsChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsChart.swift; sourceTree = "<group>"; };
@@ -300,7 +300,7 @@
 		FC92AB482DCE32080064EF6B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				FC7C1EF92DD36CA4007523CF /* DeleteSheet.swift */,
+				FC7C1EF92DD36CA4007523CF /* FloatingSheet.swift */,
 				FC8D64A92DD4A425002CD0F9 /* Home */,
 				FC8D64AA2DD4A432002CD0F9 /* MoodEditor */,
 			);
@@ -444,7 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC7C1EFA2DD36CA4007523CF /* DeleteSheet.swift in Sources */,
+				FC7C1EFA2DD36CA4007523CF /* FloatingSheet.swift in Sources */,
 				FC1A35C92DCCE41600CCE656 /* MoodTypes.swift in Sources */,
 				FC7C1EF62DD34799007523CF /* HomeVM.swift in Sources */,
 				FC7ED5EE2DCF74F5002A6B2E /* EmotionsButton.swift in Sources */,

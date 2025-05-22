@@ -14,12 +14,12 @@ struct AddMoodHeader: View {
     var body: some View {
         VStack(spacing: 12) {
             Text(title)
-                .font(.title)
+                .customFont(.title)
                 .bold()
                 .multilineTextAlignment(.center)
             
             Text(subtitle)
-                .font(.body)
+                .customFont(.body)
                 .multilineTextAlignment(.center)
         }
     }

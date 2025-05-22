@@ -15,6 +15,7 @@
 		FC1A35C02DCCE2DC00CCE656 /* MoodTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35BD2DCCE2DC00CCE656 /* MoodTrackerUITestsLaunchTests.swift */; };
 		FC1A35C92DCCE41600CCE656 /* MoodTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35C82DCCE41600CCE656 /* MoodTypes.swift */; };
 		FC1A35CB2DCCE44E00CCE656 /* Emotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35CA2DCCE44E00CCE656 /* Emotions.swift */; };
+		FC430F122DDF4B540065CB1A /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC430F112DDF4B540065CB1A /* CustomFont.swift */; };
 		FC737FD82DD2002B001A28D6 /* defaultReasons.json in Resources */ = {isa = PBXBuildFile; fileRef = FC737FD72DD2002B001A28D6 /* defaultReasons.json */; };
 		FC737FDC2DD20049001A28D6 /* MoodStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC737FDB2DD20049001A28D6 /* MoodStore.swift */; };
 		FC751A532DDE021A0067BAAC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC751A522DDE021A0067BAAC /* Launch Screen.storyboard */; };
@@ -74,6 +75,7 @@
 		FC1A35BD2DCCE2DC00CCE656 /* MoodTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FC1A35C82DCCE41600CCE656 /* MoodTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTypes.swift; sourceTree = "<group>"; };
 		FC1A35CA2DCCE44E00CCE656 /* Emotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotions.swift; sourceTree = "<group>"; };
+		FC430F112DDF4B540065CB1A /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		FC737FD72DD2002B001A28D6 /* defaultReasons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaultReasons.json; sourceTree = "<group>"; };
 		FC737FDB2DD20049001A28D6 /* MoodStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodStore.swift; sourceTree = "<group>"; };
 		FC751A522DDE021A0067BAAC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -187,8 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				FC1A35B32DCCE2D900CCE656 /* HomeView.swift */,
-				FC751A522DDE021A0067BAAC /* Launch Screen.storyboard */,
 				FC92AB412DCDEB540064EF6B /* MoodEditorView.swift */,
+				FC751A522DDE021A0067BAAC /* Launch Screen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				FC7C1EF92DD36CA4007523CF /* FloatingSheet.swift */,
+				FC430F112DDF4B540065CB1A /* CustomFont.swift */,
 				FC8D64A92DD4A425002CD0F9 /* Home */,
 				FC8D64AA2DD4A432002CD0F9 /* MoodEditor */,
 			);
@@ -472,6 +475,7 @@
 				FCC40EE32DD0B86700BD2A89 /* ReasonsButton.swift in Sources */,
 				FC92AB212DCDD7C30064EF6B /* MoodDataModel.xcdatamodeld in Sources */,
 				FC7ED5F02DCF7544002A6B2E /* SelectedComponent.swift in Sources */,
+				FC430F122DDF4B540065CB1A /* CustomFont.swift in Sources */,
 				FC92AB292DCDD8B60064EF6B /* MoodEntity.swift in Sources */,
 				FC8D64A22DD49506002CD0F9 /* MoodsChart.swift in Sources */,
 				FC8D64AD2DD4A57D002CD0F9 /* MoodEditorHeader.swift in Sources */,

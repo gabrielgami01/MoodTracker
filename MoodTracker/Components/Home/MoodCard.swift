@@ -21,10 +21,10 @@ struct MoodCard: View {
                 
                 VStack(alignment: .leading) {
                     Text(mood.type.rawValue)
-                        .font(.headline)
+                        .customFont(.body, weight: .semibold)
                     
                     Text(mood.date, format: .dateTime.hour().minute(.twoDigits))
-                        .font(.footnote)
+                        .customFont(.footnote)
                         .foregroundStyle(.secondary)
                 }
                 
@@ -46,7 +46,7 @@ struct MoodCard: View {
                         }
                     }
                 }
-                .font(.footnote)
+                .customFont(.footnote)
             }
             
             VStack(alignment: .leading) {
@@ -54,11 +54,12 @@ struct MoodCard: View {
                 
                 Text("Because of ") + Text(mood.reason.name).bold()
             }
+            .customFont(.body)
             
             Group {
                 Text("Note: ").fontWeight(.semibold) + Text(mood.note)
             }
-            .font(.callout)
+            .customFont(.callout)
         }
         .padding()
         .background(Color.white, in: .rect(cornerRadius: 24))

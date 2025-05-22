@@ -14,12 +14,12 @@ struct MoodEditorHeader: View {
     var body: some View {
         ZStack {
             Text("\(currentPage)/4")
-                .font(.headline)
+                .customFont(.body, weight: .semibold)
             
             HStack {
                 HStack {
                     Text(Date.now, format: .dateTime.month(.abbreviated).weekday().day())
-                        .font(.body)
+                        .customFont(.body)
                     
                     Image(systemName: "calendar")
                         .foregroundStyle(.accent)

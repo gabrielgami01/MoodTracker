@@ -21,11 +21,10 @@ struct EmptyMoodCard: View {
             
             VStack(spacing: 4) {
                 Text(isFutureDate ? "Future Date" : "No Mood Logged")
-                    .font(.title)
-                    .bold()
+                    .customFont(.title, weight: .bold)
                 
                 Text(isFutureDate ? "You can’t register a mood for future dates." : "You haven’t logged any mood for this day.")
-                    .font(.body)
+                    .customFont(.body)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
             }

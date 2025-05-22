@@ -75,10 +75,10 @@ struct DayItemView: View {
     var body: some View {
         VStack(spacing: 4) {
             Text(date, format: .dateTime.weekday())
-                .font(.caption2)
+                .customFont(.caption2)
             
             Text(date, format: .dateTime.day())
-                .font(.headline)
+                .customFont(.body, weight: .semibold)
         }
         .foregroundStyle(isSelected ? .white : .primary)
         .padding(.vertical, 12)

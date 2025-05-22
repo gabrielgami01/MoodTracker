@@ -14,7 +14,7 @@ struct MoodsChart: View {
         if !moods.isEmpty {
             VStack(alignment: .leading, spacing: 24) {
                 Text("Mood chart")
-                    .font(.headline)
+                    .customFont(.body, weight: .semibold)
                 
                 HStack(spacing: 8) {
                     ForEach(TimeSlot.allCases) { slot in
@@ -65,7 +65,7 @@ struct MoodBar: View {
             }
             
             Text(slot.rawValue)
-                .font(.caption)
+                .customFont(.caption)
         }
         .animation(.bouncy.speed(0.3), value: animation)
         .task {

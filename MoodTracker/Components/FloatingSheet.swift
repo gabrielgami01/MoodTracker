@@ -29,11 +29,10 @@ struct FloatingSheet: View {
 
             VStack(spacing: 8) {
                 Text(title)
-                    .font(.title3)
-                    .bold()
+                    .customFont(.title3, weight: .bold)
                 
                 Text(subtitle)
-                    .font(.footnote)
+                    .customFont(.footnote)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
             }
@@ -45,7 +44,7 @@ struct FloatingSheet: View {
                         dismiss()
                     } label: {
                         Text("Delete")
-                            .fontWeight(.bold)
+                            .customFont(.body, weight: .semibold)
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
@@ -56,7 +55,7 @@ struct FloatingSheet: View {
                     dismiss()
                 } label: {
                     Text(onDelete != nil ? "Cancel" : "Close")
-                        .fontWeight(.bold)
+                        .customFont(.body, weight: .semibold)
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)

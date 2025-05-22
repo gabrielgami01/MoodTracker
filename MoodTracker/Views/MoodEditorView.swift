@@ -51,7 +51,7 @@ struct MoodEditorView: View {
                 }
             } label: {
                 Text(vm.currentPage != 4 ? "Continue" : "Save")
-                    .font(.headline)
+                    .customFont(.body, weight: .semibold)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -97,8 +97,7 @@ struct MoodEditorView: View {
             
             VStack(alignment: .leading) {
                 Text("All emotions")
-                    .font(.body)
-                    .fontWeight(.semibold)
+                    .customFont(.body, weight: .semibold)
                 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
                     ForEach(Emotions.allCases) { emotion in
@@ -131,8 +130,7 @@ struct MoodEditorView: View {
             
             VStack(alignment: .leading) {
                 Text("All emotions")
-                    .font(.body)
-                    .fontWeight(.semibold)
+                    .customFont(.body, weight: .semibold)
                 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
                     ForEach(vm.reasons) { reason in
@@ -154,7 +152,7 @@ struct MoodEditorView: View {
             
             TextEditor(text: $vm.note)
                 .autocorrectionDisabled()
-                .font(.body)
+                .customFont(.body)
                 .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .frame(height: 300)

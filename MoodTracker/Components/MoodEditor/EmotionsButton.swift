@@ -24,7 +24,7 @@ struct EmotionsButton: View {
                     .background(isSelected ? Color.white : Color.accentColor.opacity(0.1), in: .circle)
                 
                 Text(emotion.rawValue)
-                    .font(.footnote)
+                    .customFont(.footnote)
             }
         }
         .buttonStyle(.plain)

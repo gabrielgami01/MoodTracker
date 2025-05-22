@@ -21,14 +21,13 @@ struct HomeView: View {
             
             HStack {
                 Text("Mood Tracker")
-                    .font(.title)
-                    .bold()
+                    .customFont(.title, weight: .bold)
                 
                 Spacer()
                 
                 HStack {
                     Text(vm.selectedDate, format: .dateTime.year().month())
-                        .font(.body)
+                        .customFont(.body)
                     
                     Image(systemName: "calendar")
                         .foregroundStyle(.accent)

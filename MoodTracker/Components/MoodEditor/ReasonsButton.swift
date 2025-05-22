@@ -17,6 +17,7 @@ struct ReasonsButton: View {
             onSelect()
         } label: {
             Text(reason.name)
+                .customFont(.body)
                 .lineLimit(1)
                 .padding(12)
                 .frame(width: 110)

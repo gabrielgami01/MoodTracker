@@ -28,7 +28,7 @@ struct MoodSelector: View {
             
             
             Text("You're feeling \(selectedMood.rawValue.lowercased())")
-                .font(.headline)
+                .customFont(.body, weight: .semibold)
         }
         .animation(.default, value: selectedMood)
     }

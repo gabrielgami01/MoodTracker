@@ -18,8 +18,7 @@ struct SelectedComponent<V: RandomAccessCollection>: View where V.Element: Ident
         VStack(alignment: .leading) {
             HStack {
                 Text("Selected (max \(maxElement))")
-                    .font(.body)
-                    .fontWeight(.semibold)
+                    .customFont(.body, weight: .semibold)
                 
                 Spacer()
                 
@@ -27,20 +26,24 @@ struct SelectedComponent<V: RandomAccessCollection>: View where V.Element: Ident
                     onClearAll()
                 } label: {
                     Text("Clear all")
+                        .customFont(.body)
                 }
             }
             
             HStack {
                 ForEach(values) { value in
                     HStack {
-                        if let keyPath = displayKeyPath {
-                            let item = value[keyPath: keyPath]
-                            Text(item)
-                                .tag(item)
-                        } else {
-                            Text("\(value)".capitalized)
-                                .tag(value)
+                        Group {
+                            if let keyPath = displayKeyPath {
+                                let item = value[keyPath: keyPath]
+                                Text(item)
+                                    .tag(item)
+                            } else {
+                                Text("\(value)".capitalized)
+                                    .tag(value)
+                            }
                         }
+                        .customFont(.body)
                         
                         Button {
                             onTap(value)

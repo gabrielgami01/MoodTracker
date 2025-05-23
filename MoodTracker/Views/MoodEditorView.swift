@@ -14,56 +14,64 @@ struct MoodEditorView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        VStack(spacing: 24) {
-            MoodEditorHeader(currentPage: $vm.currentPage) {
-                dismiss()
-            }
-            
-            if vm.currentPage == 1 {
-                firstPage
-                    .transition(.move(edge: .leading))
-            } else if vm.currentPage == 2 {
-                secondPage
-                    .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-            } else if vm.currentPage == 3 {
-                thirdPage
-                    .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-            } else {
-                fourthPage
-            }
-            
-            Spacer()
-            
-            Button {
-                if vm.currentPage != 4 {
-                    withAnimation {
-                        vm.currentPage += 1
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 24) {
+                    if vm.currentPage == 1 {
+                        firstPage
+                            .transition(.move(edge: .leading))
+                    } else if vm.currentPage == 2 {
+                        secondPage
+                            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                    } else if vm.currentPage == 3 {
+                        thirdPage
+                            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                    } else {
+                        fourthPage
                     }
-                } else {
-                    if let newMood = vm.createMood() {
-                        if vm.mood == nil {
-                            moodsVM.addMood(newMood)
-                        } else {
-                            moodsVM.updateMood(newMood)
-                        }
-                        dismiss()
-                    }
+                    
+                    Spacer()
                 }
-            } label: {
-                Text(vm.currentPage != 4 ? "Continue" : "Save")
-                    .customFont(.body, weight: .semibold)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.accentColor, in: .capsule)
             }
-            .disabled(vm.isDisabled)
-            .animation(.default, value: vm.isDisabled)
-        }
-        .padding(.horizontal)
-        .background(Color.background)
-        .task {
-            vm.loadMood()
+            .customToolbar {
+                MoodEditorHeader(currentPage: $vm.currentPage) {
+                    dismiss()
+                }
+            }
+            .safeAreaInset(edge: .bottom, spacing: 16) {
+                Button {
+                    if vm.currentPage != 4 {
+                        withAnimation {
+                            vm.currentPage += 1
+                        }
+                    } else {
+                        if let newMood = vm.createMood() {
+                            if vm.mood == nil {
+                                moodsVM.addMood(newMood)
+                            } else {
+                                moodsVM.updateMood(newMood)
+                            }
+                            dismiss()
+                        }
+                    }
+                } label: {
+                    Text(vm.currentPage != 4 ? "Continue" : "Save")
+                        .customFont(.body, weight: .semibold)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.accentColor, in: .capsule)
+                }
+                .disabled(vm.isDisabled)
+                .animation(.default, value: vm.isDisabled)
+            }
+            .padding(.horizontal)
+            .padding(.top, 8)
+            .scrollDisabled(true)
+            .background(Color.background)
+            .task {
+                vm.loadMood()
+            }
         }
     }
     
@@ -152,10 +160,11 @@ struct MoodEditorView: View {
             
             TextEditor(text: $vm.note)
                 .autocorrectionDisabled()
+                .scrollDisabled(true)
                 .customFont(.body)
                 .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .frame(height: 300)
+                .frame(height: 250)
         }
     }
 }

@@ -36,20 +36,20 @@ struct MoodsChart: View {
 struct MoodBar: View {
     let slot: TimeSlot
     var mood: Mood? = nil
-    
-    let fullHeight: CGFloat = 200
+
+    let barHeight: CGFloat = 200
     let barWidth: CGFloat  = 30
     let emojiSize: CGFloat = 28
-    
-    @State private var animation = false
-    
+
+    @State private var fillPercentage: CGFloat = 0
+
     var body: some View {
         VStack {
             ZStack(alignment: .bottom) {
                 Capsule()
                     .fill(Color.gray.opacity(0.2))
-                    .frame(width: barWidth, height: fullHeight)
-                
+                    .frame(width: barWidth, height: barHeight)
+
                 if let mood {
                     Capsule()
                         .fill(mood.type.color.gradient)
@@ -58,20 +58,23 @@ struct MoodBar: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: emojiSize)
-                                .scaleEffect(animation ? 1 : 0.1)
+                                .scaleEffect(fillPercentage > 0 ? 1 : 0.1)
                         }
-                        .frame(width: barWidth, height: animation ? fullHeight * mood.type.numericValue : 0)
+                        .frame(width: barWidth, height: barHeight * fillPercentage)
+                        .animation(.bouncy.speed(0.3), value: fillPercentage)
                 }
             }
-            
+
             Text(slot.rawValue)
                 .customFont(.caption)
         }
-        .animation(.bouncy.speed(0.3), value: animation)
-        .task {
-            animation.toggle()
-        }
         .frame(maxWidth: .infinity)
+        .onChange(of: mood?.type.numericValue) { newValue in
+            fillPercentage = newValue ?? 0
+        }
+        .task {
+            fillPercentage = mood?.type.numericValue ?? 0
+        }
     }
 }
 

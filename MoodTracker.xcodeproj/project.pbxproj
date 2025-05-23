@@ -16,6 +16,7 @@
 		FC1A35C92DCCE41600CCE656 /* MoodTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35C82DCCE41600CCE656 /* MoodTypes.swift */; };
 		FC1A35CB2DCCE44E00CCE656 /* Emotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35CA2DCCE44E00CCE656 /* Emotions.swift */; };
 		FC430F122DDF4B540065CB1A /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC430F112DDF4B540065CB1A /* CustomFont.swift */; };
+		FC7177DE2DE09CB10054A453 /* CustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7177DD2DE09CB10054A453 /* CustomToolbar.swift */; };
 		FC737FD82DD2002B001A28D6 /* defaultReasons.json in Resources */ = {isa = PBXBuildFile; fileRef = FC737FD72DD2002B001A28D6 /* defaultReasons.json */; };
 		FC737FDC2DD20049001A28D6 /* MoodStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC737FDB2DD20049001A28D6 /* MoodStore.swift */; };
 		FC751A532DDE021A0067BAAC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC751A522DDE021A0067BAAC /* Launch Screen.storyboard */; };
@@ -76,6 +77,7 @@
 		FC1A35C82DCCE41600CCE656 /* MoodTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTypes.swift; sourceTree = "<group>"; };
 		FC1A35CA2DCCE44E00CCE656 /* Emotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotions.swift; sourceTree = "<group>"; };
 		FC430F112DDF4B540065CB1A /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		FC7177DD2DE09CB10054A453 /* CustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolbar.swift; sourceTree = "<group>"; };
 		FC737FD72DD2002B001A28D6 /* defaultReasons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaultReasons.json; sourceTree = "<group>"; };
 		FC737FDB2DD20049001A28D6 /* MoodStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodStore.swift; sourceTree = "<group>"; };
 		FC751A522DDE021A0067BAAC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 			children = (
 				FC7C1EF92DD36CA4007523CF /* FloatingSheet.swift */,
 				FC430F112DDF4B540065CB1A /* CustomFont.swift */,
+				FC7177DD2DE09CB10054A453 /* CustomToolbar.swift */,
 				FC8D64A92DD4A425002CD0F9 /* Home */,
 				FC8D64AA2DD4A432002CD0F9 /* MoodEditor */,
 			);
@@ -479,6 +482,7 @@
 				FC92AB292DCDD8B60064EF6B /* MoodEntity.swift in Sources */,
 				FC8D64A22DD49506002CD0F9 /* MoodsChart.swift in Sources */,
 				FC8D64AD2DD4A57D002CD0F9 /* MoodEditorHeader.swift in Sources */,
+				FC7177DE2DE09CB10054A453 /* CustomToolbar.swift in Sources */,
 				FC92AB4A2DCE32130064EF6B /* MoodSelector.swift in Sources */,
 				FC92AB3E2DCDDFC90064EF6B /* MockRepository.swift in Sources */,
 				FC92AB2D2DCDDB0E0064EF6B /* PersistenceController.swift in Sources */,

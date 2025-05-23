@@ -24,7 +24,7 @@ final class HomeVM: ObservableObject {
     var isFuture: Bool {
         Calendar.current.startOfDay(for: selectedDate) > Calendar.current.startOfDay(for: .now)
     }
-    var actualTimeSlot: TimeSlot? {
+    var actualTimeSlot: TimeSlot {
         TimeSlot.slot(for: .now)
     }
     

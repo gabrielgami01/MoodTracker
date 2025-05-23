@@ -43,7 +43,7 @@ struct HomeView: View {
                 
                 LazyVStack(spacing: 20) {
                     ForEach(moodStore.moods) { mood in
-                        MoodCard(mood: mood) {
+                        MoodCard(mood: mood, actualSlot: vm.actualTimeSlot) {
                             vm.selectedMood = mood
                             withAnimation {
                                 showDeleteSheet.toggle()
@@ -59,7 +59,7 @@ struct HomeView: View {
         .overlay(alignment: .bottomTrailing) {
             if vm.isToday {
                 Button {
-                    if let actualSlot = vm.actualTimeSlot, moodStore.moods.contains(where: { $0.timeSlot == actualSlot }) {
+                    if moodStore.moods.contains(where: { $0.timeSlot == vm.actualTimeSlot }) {
                         showWarningSheet.toggle()
                     } else {
                         showAddMood.toggle()

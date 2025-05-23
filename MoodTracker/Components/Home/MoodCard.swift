@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MoodCard: View {
     let mood: Mood
+    let actualSlot: TimeSlot
     let onDelete: () -> Void
     let onEdit: () -> Void
     
@@ -38,7 +39,7 @@ struct MoodCard: View {
                     }
                     .foregroundStyle(.red)
                     
-                    if Calendar.current.startOfDay(for: mood.date) == Calendar.current.startOfDay(for: .now) {
+                    if Calendar.current.startOfDay(for: mood.date) == Calendar.current.startOfDay(for: .now) && mood.timeSlot == actualSlot  {
                         Button {
                             onEdit()
                         } label: {
@@ -68,7 +69,7 @@ struct MoodCard: View {
 
 #Preview {
     ScrollView {
-        MoodCard(mood: .mock1) {} onEdit: {}
+        MoodCard(mood: .mock1, actualSlot: .dawn) {} onEdit: {}
     }
     .padding()
     .background(Color.background)

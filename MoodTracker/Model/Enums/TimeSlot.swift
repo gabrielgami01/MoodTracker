@@ -36,8 +36,8 @@ enum TimeSlot: String, CaseIterable, Identifiable {
         }
     }
     
-    static func slot(for date: Date, calendar: Calendar = .current) -> TimeSlot? {
-        return TimeSlot.allCases.first { $0.contains(date, calendar: calendar) }
+    static func slot(for date: Date, calendar: Calendar = .current) -> TimeSlot {
+        return TimeSlot.allCases.first { $0.contains(date, calendar: calendar) }!
     }
     
     func contains(_ date: Date, calendar: Calendar = .current) -> Bool {

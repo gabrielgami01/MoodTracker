@@ -137,7 +137,7 @@ struct MoodEditorView: View {
             .transition(.opacity)
             
             VStack(alignment: .leading) {
-                Text("All emotions")
+                Text("All reasons")
                     .customFont(.body, weight: .semibold)
                 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {

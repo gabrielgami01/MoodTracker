@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MoodEditorView: View {
-    @EnvironmentObject private var moodsVM: MoodStore
+    @EnvironmentObject private var moodStore: MoodStore
     @ObservedObject var vm: MoodEditorVM
     
     @Environment(\.dismiss) private var dismiss
@@ -47,9 +47,9 @@ struct MoodEditorView: View {
                     } else {
                         if let newMood = vm.createMood() {
                             if vm.mood == nil {
-                                moodsVM.addMood(newMood)
+                                moodStore.addMood(newMood)
                             } else {
-                                moodsVM.updateMood(newMood)
+                                moodStore.updateMood(newMood)
                             }
                             dismiss()
                         }
@@ -71,6 +71,7 @@ struct MoodEditorView: View {
             .background(Color.background)
             .task {
                 vm.loadMood()
+                moodStore.fetchReasons()
             }
         }
     }
@@ -141,7 +142,7 @@ struct MoodEditorView: View {
                     .customFont(.body, weight: .semibold)
                 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                    ForEach(vm.reasons) { reason in
+                    ForEach(moodStore.reasons) { reason in
                         ReasonsButton(reason: reason, isSelected: vm.selectedReason.contains(reason)) {
                             vm.selectReason(reason)
                         }
@@ -149,7 +150,7 @@ struct MoodEditorView: View {
                 }
             }
         }
-        .animation(.default, value: vm.reasons)
+        .animation(.default, value: moodStore.reasons)
     }
     
     var fourthPage: some View {

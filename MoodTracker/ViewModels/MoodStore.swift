@@ -16,6 +16,7 @@ final class MoodStore: ObservableObject {
     }
     
     @Published var moods: [Mood] = []
+    @Published var reasons: [Reason] = []
     
     func fetchMoods(date: Date = .now) {
         do {
@@ -50,6 +51,15 @@ final class MoodStore: ObservableObject {
         do {
             try repository.updateMood(mood)
             fetchMoods()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func fetchReasons() {
+        do {
+            let result = try repository.fetchReasons()
+            reasons = result
         } catch {
             print(error.localizedDescription)
         }

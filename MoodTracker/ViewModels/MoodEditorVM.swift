@@ -14,7 +14,6 @@ final class MoodEditorVM: ObservableObject {
     init(repository: Repository = RepositoryImpl.shared, mood: Mood? = nil) {
         self.repository = repository
         self.mood = mood
-        fetchReasons()
     }
     
     @Published var mood: Mood?
@@ -23,8 +22,6 @@ final class MoodEditorVM: ObservableObject {
     @Published var selectedEmotions: [Emotions] = []
     @Published var selectedReason: [Reason] = []
     @Published var note = ""
-    
-    @Published var reasons: [Reason] = []
     
     @Published var currentPage = 1
     var isDisabled: Bool {
@@ -42,15 +39,6 @@ final class MoodEditorVM: ObservableObject {
         selectedEmotions = mood.emotions
         selectedReason = [mood.reason]
         note = mood.note
-    }
-    
-    func fetchReasons() {
-        do {
-            let result = try repository.fetchReasons()
-            reasons = result
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     func createMood() -> Mood? {

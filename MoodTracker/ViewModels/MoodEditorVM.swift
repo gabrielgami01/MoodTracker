@@ -14,6 +14,8 @@ final class MoodEditorVM: ObservableObject {
     init(repository: Repository = RepositoryImpl.shared, mood: Mood? = nil) {
         self.repository = repository
         self.mood = mood
+        
+        loadMood()
     }
     
     @Published var mood: Mood?

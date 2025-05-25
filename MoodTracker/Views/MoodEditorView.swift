@@ -70,7 +70,6 @@ struct MoodEditorView: View {
             .scrollDisabled(true)
             .background(Color.background)
             .task {
-                vm.loadMood()
                 moodStore.fetchReasons()
             }
         }

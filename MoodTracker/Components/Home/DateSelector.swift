@@ -13,20 +13,20 @@ struct DateSelector: View {
     @State private var referenceDate: Date = .now
     @Namespace private var namespace
 
+    private let calendar = Calendar(identifier: .iso8601)
     private var weekDates: [Date] {
         Date.weekDates(containing: referenceDate)
     }
-
     private var isCurrentWeek: Bool {
-        Calendar(identifier: .iso8601).isDate(referenceDate, equalTo: .now, toGranularity: .weekOfYear)
+        calendar.isDate(referenceDate, equalTo: .now, toGranularity: .weekOfYear)
     }
 
     var body: some View {
         HStack {
             Button {
                 withAnimation {
-                    referenceDate = Calendar(identifier: .iso8601).date(byAdding: .weekOfYear, value: -1, to: referenceDate) ?? referenceDate
-                    if !Calendar.current.isDate(selectedDate, equalTo: referenceDate, toGranularity: .weekOfYear) {
+                    referenceDate = calendar.date(byAdding: .weekOfYear, value: -1, to: referenceDate) ?? referenceDate
+                    if !calendar.isDate(selectedDate, equalTo: referenceDate, toGranularity: .weekOfYear) {
                         selectedDate = referenceDate
                     }
                 }
@@ -39,9 +39,10 @@ struct DateSelector: View {
             
             HStack(spacing: 4) {
                 ForEach(weekDates, id: \.self) { date in
-                    DayItemView(date: date, isSelected: Calendar.current.isDate(date, inSameDayAs: selectedDate), namespace: namespace) {
+                    DayItemView(date: date, isSelected: calendar.isDate(date, inSameDayAs: selectedDate), namespace: namespace) {
                         withAnimation(.easeInOut) {
                             selectedDate = date
+                            referenceDate = date
                         }
                     }
                 }
@@ -51,9 +52,13 @@ struct DateSelector: View {
 
             Button {
                 withAnimation {
-                    referenceDate = Calendar(identifier: .iso8601).date(byAdding: .weekOfYear, value: 1, to: referenceDate) ?? referenceDate
-                    if !Calendar.current.isDate(selectedDate,equalTo: referenceDate, toGranularity: .weekOfYear) {
-                        selectedDate = referenceDate
+                    referenceDate = calendar.date(byAdding: .weekOfYear, value: 1, to: referenceDate) ?? referenceDate
+                    if !calendar.isDate(selectedDate,equalTo: referenceDate, toGranularity: .weekOfYear) {
+                        if isCurrentWeek{
+                            selectedDate = .now
+                        } else {
+                            selectedDate = referenceDate
+                        }
                     }
                 }
             } label: {

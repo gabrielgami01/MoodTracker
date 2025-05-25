@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-struct FloatingSheet: View {
+struct FloatingSheet<V: View>: View {
     let iconName: String
     let title: String
-    let subtitle: String
-    var onDelete: (() -> Void)?
-    
-    @Environment(\.dismiss) private var dismiss
+    var subtitle: String?
+    @ViewBuilder let content: () -> V
 
     var body: some View {
         VStack(spacing: 24) {
@@ -31,39 +29,16 @@ struct FloatingSheet: View {
                 Text(title)
                     .customFont(.title3, weight: .bold)
                 
-                Text(subtitle)
-                    .customFont(.footnote)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
-            }
-
-            VStack(spacing: 16) {
-                if let onDelete {
-                    Button {
-                        onDelete()
-                        dismiss()
-                    } label: {
-                        Text("Delete")
-                            .customFont(.body, weight: .semibold)
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .buttonBorderShape(.capsule)
+                if let subtitle {
+                    Text(subtitle)
+                        .customFont(.footnote)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
                 }
-                
-                Button {
-                    dismiss()
-                } label: {
-                    Text(onDelete != nil ? "Cancel" : "Close")
-                        .customFont(.body, weight: .semibold)
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(onDelete != nil ? .secondary.opacity(0.5) : .accent )
-                .buttonBorderShape(.capsule)
             }
-                            
-            .padding(.horizontal)
+            
+            content()
+                .padding(.horizontal)
         }
         .padding()
         .background {
@@ -73,19 +48,54 @@ struct FloatingSheet: View {
         }
         .shadow(color: .black.opacity(0.1), radius: 8)
         .padding(.horizontal)
-        .presentationDetents([.height(onDelete != nil ? 300 : 250)])
+        .presentationDetents([.height(300)])
         .presentationCornerRadius(0)
         .presentationDragIndicator(.hidden)
         .presentationBackground(.clear)
     }
 }
 
-#Preview("DeleteSheet") {
-    FloatingSheet(iconName: "trash.circle.fill",
-                title: "Delete existing mood?", subtitle: "This will permanently delete your mood data.") {}
-}
 
 #Preview("WarningSheet") {
-    FloatingSheet(iconName: "exclamationmark.circle.fill",
-                title: "Mood already logged", subtitle: "Try editing your existing mood instead.")
+    FloatingSheet(iconName: "exclamationmark.circle.fill", title: "Mood already logged", subtitle: "Try editing your existing mood instead.") {
+        VStack(spacing: 16) {
+            Button {
+                
+            } label: {
+                Text("Close")
+                    .customFont(.body, weight: .semibold)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.accent)
+            .buttonBorderShape(.capsule)
+        }
+    }
+}
+
+#Preview("DeleteSheet") {
+    FloatingSheet(iconName: "trash.circle.fill", title: "Delete existing mood?", subtitle: "This will permanently delete your mood data.")  {
+        VStack(spacing: 16) {
+            Button {
+                
+            } label: {
+                Text("Delete")
+                    .customFont(.body, weight: .semibold)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.capsule)
+            
+            Button {
+               
+            } label: {
+                Text("Cancel")
+                    .customFont(.body, weight: .semibold)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.secondary.opacity(0.5))
+            .buttonBorderShape(.capsule)
+        }
+    }
 }

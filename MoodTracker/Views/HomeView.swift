@@ -80,17 +80,52 @@ struct HomeView: View {
                 }
             }
             .sheet(isPresented: $showDeleteSheet) {
-                FloatingSheet(iconName: "trash.circle.fill",
-                              title: "Delete existing mood?", subtitle: "This will permanently delete your mood data.") {
-                    withAnimation {
-                        moodStore.deleteMood(vm.selectedMood)
+                FloatingSheet(iconName: "trash.circle.fill", title: "Delete existing mood?",
+                              subtitle: "This will permanently delete your mood data.")  {
+                    VStack(spacing: 16) {
+                        Button {
+                            withAnimation {
+                                moodStore.deleteMood(vm.selectedMood)
+                            }
+                            vm.selectedMood = nil
+                            showDeleteSheet.toggle()
+                        } label: {
+                            Text("Delete")
+                                .customFont(.body, weight: .semibold)
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .buttonBorderShape(.capsule)
+                        
+                        Button {
+                            showDeleteSheet.toggle()
+                        } label: {
+                            Text("Cancel")
+                                .customFont(.body, weight: .semibold)
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.secondary.opacity(0.5))
+                        .buttonBorderShape(.capsule)
                     }
-                    vm.selectedMood = nil
                 }
             }
             .sheet(isPresented: $showWarningSheet) {
-                FloatingSheet(iconName: "exclamationmark.circle.fill",
-                              title: "Mood already logged", subtitle: "Try editing your existing mood instead.")
+                FloatingSheet(iconName: "exclamationmark.circle.fill", title: "Mood already logged",
+                              subtitle: "Try editing your existing mood instead.") {
+                    VStack(spacing: 16) {
+                        Button {
+                            showWarningSheet.toggle()
+                        } label: {
+                            Text("Close")
+                                .customFont(.body, weight: .semibold)
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.accent)
+                        .buttonBorderShape(.capsule)
+                    }
+                }
             }
             .fullScreenCover(isPresented: $showAddMood) {
                 MoodEditorView(vm: MoodEditorVM(mood: vm.selectedMood))

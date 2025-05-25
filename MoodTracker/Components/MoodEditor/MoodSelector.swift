@@ -20,8 +20,8 @@ struct MoodSelector: View {
                     } label: {
                         Image(mood.imageName)
                             .resizable()
-                            .frame(width: 50, height: 50)
-                            .scaleEffect(selectedMood == mood ? 1.75 : 1)
+                            .frame(width: 40, height: 40)
+                            .scaleEffect(selectedMood == mood ? 2 : 1)
                     }
                 }
             }

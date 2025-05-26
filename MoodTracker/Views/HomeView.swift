@@ -142,7 +142,7 @@ struct HomeView: View {
             .padding(.horizontal)
             .background(Color.background)
             .scrollIndicators(.hidden)
-            .scrollDisabled(moodStore.moods.count <= 1)
+            .scrollBounceBehavior(.basedOnSize)
         }
     }
 }

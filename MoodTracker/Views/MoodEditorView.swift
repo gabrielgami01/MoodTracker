@@ -104,8 +104,8 @@ struct MoodEditorView: View {
             }
             .padding(.horizontal)
             .padding(.top, 8)
-            .scrollDisabled(true)
             .background(Color.background)
+            .scrollBounceBehavior(.basedOnSize)
             .task {
                 moodStore.fetchReasons()
             }

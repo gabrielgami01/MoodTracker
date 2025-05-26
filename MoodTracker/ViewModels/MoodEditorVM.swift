@@ -25,6 +25,8 @@ final class MoodEditorVM: ObservableObject {
     @Published var selectedReason: [Reason] = []
     @Published var note = ""
     
+    @Published var newReason = ""
+    
     @Published var currentPage = 1
     var isDisabled: Bool {
         if (currentPage == 2 && selectedEmotions.isEmpty) || (currentPage == 3 && selectedReason.isEmpty) {
@@ -49,6 +51,12 @@ final class MoodEditorVM: ObservableObject {
         let newMood = Mood(id: mood?.id ?? UUID(), type: selectedMood, emotions: selectedEmotions, reason: reason, note: note, timeSlot: TimeSlot.slot(for: .now), date: .now)
         
         return newMood
+    }
+    
+    func createReason() -> Reason {
+        let newReason = Reason(id: UUID(), name: newReason)
+        
+        return newReason
     }
     
     func selectEmotion(_ emotion: Emotions) {

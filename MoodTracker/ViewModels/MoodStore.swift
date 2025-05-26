@@ -64,4 +64,13 @@ final class MoodStore: ObservableObject {
             print(error.localizedDescription)
         }
     }
+    
+    func addReason(_ reason: Reason) {
+        do {
+            try repository.addReason(reason)
+            fetchReasons()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

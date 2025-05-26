@@ -9,7 +9,9 @@ import SwiftUI
 
 struct MoodEditorView: View {
     @EnvironmentObject private var moodStore: MoodStore
-    @ObservedObject var vm: MoodEditorVM
+    @StateObject var vm: MoodEditorVM
+    
+    @State private var showAddReason = false
     
     @Environment(\.dismiss) private var dismiss
     
@@ -64,6 +66,41 @@ struct MoodEditorView: View {
                 }
                 .disabled(vm.isDisabled)
                 .animation(.default, value: vm.isDisabled)
+            }
+            .sheet(isPresented: $showAddReason) {
+                FloatingSheet(iconName: "plus.circle.fill", title: "Add new reason") {
+                    VStack(spacing: 24) {
+                        TextField("Reason", text: $vm.newReason)
+                            .customFont(.body)
+                            .autocorrectionDisabled()
+                            .textFieldStyle(.roundedBorder)
+                            .clipShape(.rect(cornerRadius: 12))
+                        
+                        VStack(spacing: 16){
+                            Button {
+                                moodStore.addReason(vm.createReason())
+                                showAddReason.toggle()
+                            } label: {
+                                Text("Save")
+                                    .customFont(.body, weight: .semibold)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .buttonBorderShape(.capsule)
+                            
+                            Button {
+
+                            } label: {
+                                Text("Cancel")
+                                    .customFont(.body, weight: .semibold)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(.secondary.opacity(0.5))
+                            .buttonBorderShape(.capsule)
+                        }
+                    }
+                }
             }
             .padding(.horizontal)
             .padding(.top, 8)
@@ -137,8 +174,19 @@ struct MoodEditorView: View {
             .transition(.opacity)
             
             VStack(alignment: .leading) {
-                Text("All reasons")
-                    .customFont(.body, weight: .semibold)
+                HStack {
+                    Text("All reasons")
+                        .customFont(.body, weight: .semibold)
+                    
+                    Spacer()
+                    
+                    Button {
+                        showAddReason.toggle()
+                    } label: {
+                        Text("Add new reason")
+                            .customFont(.body)
+                    }
+                }
                 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
                     ForEach(moodStore.reasons) { reason in

@@ -21,7 +21,7 @@ struct MoodCard: View {
                     .frame(width: 50, height: 50)
                 
                 VStack(alignment: .leading) {
-                    Text(mood.type.rawValue)
+                    Text(LocalizedStringKey(mood.type.rawValue.capitalized))
                         .customFont(.body, weight: .semibold)
                     
                     Text(mood.date, format: .dateTime.hour().minute(.twoDigits))
@@ -51,7 +51,16 @@ struct MoodCard: View {
             }
             
             VStack(alignment: .leading) {
-                Text("You felt ") + Text(mood.emotionsList).bold()
+                HStack(spacing: 0) {
+                    Text("You felt ")
+                    
+                    Group {
+                        ForEach(mood.emotions) { emotion in
+                            Text(LocalizedStringKey(emotion.rawValue.capitalized)) + Text(mood.emotions.last == emotion ? "" : ", ")
+                        }
+                    }
+                    .bold()
+                }
                 
                 Text("Because of ") + Text(mood.reason.name).bold()
             }

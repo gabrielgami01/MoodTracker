@@ -15,9 +15,11 @@
 		FC1A35C02DCCE2DC00CCE656 /* MoodTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35BD2DCCE2DC00CCE656 /* MoodTrackerUITestsLaunchTests.swift */; };
 		FC1A35C92DCCE41600CCE656 /* MoodTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35C82DCCE41600CCE656 /* MoodTypes.swift */; };
 		FC1A35CB2DCCE44E00CCE656 /* Emotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1A35CA2DCCE44E00CCE656 /* Emotions.swift */; };
+		FC2CCCDF2DE7303A007468D5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FC2CCCDE2DE7303A007468D5 /* Localizable.xcstrings */; };
 		FC430F122DDF4B540065CB1A /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC430F112DDF4B540065CB1A /* CustomFont.swift */; };
+		FC672A2F2DE74419009133E8 /* defaultReasons_es.json in Resources */ = {isa = PBXBuildFile; fileRef = FC672A2E2DE74419009133E8 /* defaultReasons_es.json */; };
 		FC7177DE2DE09CB10054A453 /* CustomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7177DD2DE09CB10054A453 /* CustomToolbar.swift */; };
-		FC737FD82DD2002B001A28D6 /* defaultReasons.json in Resources */ = {isa = PBXBuildFile; fileRef = FC737FD72DD2002B001A28D6 /* defaultReasons.json */; };
+		FC737FD82DD2002B001A28D6 /* defaultReasons_en.json in Resources */ = {isa = PBXBuildFile; fileRef = FC737FD72DD2002B001A28D6 /* defaultReasons_en.json */; };
 		FC737FDC2DD20049001A28D6 /* MoodStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC737FDB2DD20049001A28D6 /* MoodStore.swift */; };
 		FC751A532DDE021A0067BAAC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC751A522DDE021A0067BAAC /* Launch Screen.storyboard */; };
 		FC7BCAE12DDDD93B008B9C62 /* TimeSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7BCAE02DDDD93B008B9C62 /* TimeSlot.swift */; };
@@ -76,9 +78,11 @@
 		FC1A35BD2DCCE2DC00CCE656 /* MoodTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FC1A35C82DCCE41600CCE656 /* MoodTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTypes.swift; sourceTree = "<group>"; };
 		FC1A35CA2DCCE44E00CCE656 /* Emotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotions.swift; sourceTree = "<group>"; };
+		FC2CCCDE2DE7303A007468D5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		FC430F112DDF4B540065CB1A /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		FC672A2E2DE74419009133E8 /* defaultReasons_es.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaultReasons_es.json; sourceTree = "<group>"; };
 		FC7177DD2DE09CB10054A453 /* CustomToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolbar.swift; sourceTree = "<group>"; };
-		FC737FD72DD2002B001A28D6 /* defaultReasons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaultReasons.json; sourceTree = "<group>"; };
+		FC737FD72DD2002B001A28D6 /* defaultReasons_en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaultReasons_en.json; sourceTree = "<group>"; };
 		FC737FDB2DD20049001A28D6 /* MoodStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodStore.swift; sourceTree = "<group>"; };
 		FC751A522DDE021A0067BAAC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		FC7BCAE02DDDD93B008B9C62 /* TimeSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlot.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 			children = (
 				FC1A35B42DCCE2D900CCE656 /* MoodTrackerApp.swift */,
 				FC1A35B22DCCE2D900CCE656 /* Assets.xcassets */,
+				FC2CCCDE2DE7303A007468D5 /* Localizable.xcstrings */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -229,7 +234,8 @@
 		FC737FD62DD20028001A28D6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FC737FD72DD2002B001A28D6 /* defaultReasons.json */,
+				FC672A2E2DE74419009133E8 /* defaultReasons_es.json */,
+				FC737FD72DD2002B001A28D6 /* defaultReasons_en.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -406,7 +412,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				es,
 			);
 			mainGroup = FC0F50AF2DCCC2C8009CFC0C;
 			minimizedProjectReferenceProxies = 1;
@@ -429,7 +435,9 @@
 			files = (
 				FC751A532DDE021A0067BAAC /* Launch Screen.storyboard in Resources */,
 				FC1A35B62DCCE2D900CCE656 /* Assets.xcassets in Resources */,
-				FC737FD82DD2002B001A28D6 /* defaultReasons.json in Resources */,
+				FC2CCCDF2DE7303A007468D5 /* Localizable.xcstrings in Resources */,
+				FC672A2F2DE74419009133E8 /* defaultReasons_es.json in Resources */,
+				FC737FD82DD2002B001A28D6 /* defaultReasons_en.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +590,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -639,6 +648,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

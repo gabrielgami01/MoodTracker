@@ -65,7 +65,7 @@ struct MoodBar: View {
                 }
             }
 
-            Text(slot.rawValue)
+            Text(LocalizedStringKey(slot.rawValue.capitalized))
                 .customFont(.caption)
         }
         .frame(maxWidth: .infinity)

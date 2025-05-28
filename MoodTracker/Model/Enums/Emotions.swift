@@ -8,17 +8,17 @@
 import Foundation
 
 enum Emotions: String, CaseIterable, Identifiable {
-    case happy = "Happy"
-    case cool = "Cool"
-    case peaceful = "Peaceful"
-    case surprised = "Surprised"
-    case excited = "Excited"
+    case happy
+    case cool
+    case peaceful
+    case surprised
+    case excited
     
-    case aww = "Aww"
-    case confused = "Confused"
-    case stressed = "Stressed"
-    case worried = "Worried"
-    case angry = "Angry"
+    case aww
+    case confused
+    case stressed
+    case worried
+    case angry
     
     static func parseAll(from values: [String]?) -> [Emotions]? {
         guard let values else { return nil }
@@ -31,6 +31,6 @@ enum Emotions: String, CaseIterable, Identifiable {
     var id: Self { self }
     
     var imageName: String {
-        "\(self.rawValue.lowercased())_face"
+        "\(self.rawValue)_face"
     }
 }

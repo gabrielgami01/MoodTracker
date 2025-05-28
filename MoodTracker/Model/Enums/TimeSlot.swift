@@ -8,11 +8,11 @@
 import Foundation
 
 enum TimeSlot: String, CaseIterable, Identifiable {
-    case dawn = "Dawn"
-    case morning = "Morning"
-    case afternoon = "Afternoon"
-    case evening = "Evening"
-    case night = "Night"
+    case dawn
+    case morning
+    case afternoon
+    case evening
+    case night
     
     var id: Self { self }
     

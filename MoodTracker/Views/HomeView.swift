@@ -81,7 +81,7 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showDeleteSheet) {
                 FloatingSheet(iconName: "trash.circle.fill", title: "Delete existing mood?",
-                              subtitle: "This will permanently delete your mood data.")  {
+                              subtitle: "This will permanently delete your mood data")  {
                     VStack(spacing: 16) {
                         Button {
                             withAnimation {
@@ -112,7 +112,7 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showWarningSheet) {
                 FloatingSheet(iconName: "exclamationmark.circle.fill", title: "Mood already logged",
-                              subtitle: "Try editing your existing mood instead.") {
+                              subtitle: "Try editing your existing mood instead") {
                     VStack(spacing: 16) {
                         Button {
                             showWarningSheet.toggle()

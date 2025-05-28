@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AddMoodHeader: View {
-    let title: String
-    let subtitle: String
+    let title: LocalizedStringKey
+    let subtitle: LocalizedStringKey
     
     var body: some View {
         VStack(spacing: 12) {

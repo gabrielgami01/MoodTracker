@@ -23,7 +23,7 @@ struct EmotionsButton: View {
                     .padding()
                     .background(isSelected ? Color.white : Color.accentColor.opacity(0.1), in: .circle)
                 
-                Text(emotion.rawValue)
+                Text(LocalizedStringKey(emotion.rawValue.capitalized))
                     .customFont(.footnote)
             }
         }

@@ -8,16 +8,16 @@
 import SwiftUI
 
 enum MoodTypes: String, CaseIterable, Identifiable {
-    case terrible = "Terrible"
-    case bad = "Bad"
-    case neutral = "Neutral"
-    case good = "Good"
-    case awesome = "Awesome"
+    case terrible
+    case bad
+    case neutral
+    case good
+    case awesome
     
     var id: Self { self }
     
     var imageName: String {
-        "\(self.rawValue.lowercased())_face"
+        "\(self.rawValue)_face"
     }
     
     var numericValue: Double {

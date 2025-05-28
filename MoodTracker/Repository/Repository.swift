@@ -111,7 +111,9 @@ extension Repository {
     func preloadDefaultReasons() async throws {
         let context = persistenceController.newBackgroundContext()
         
-        guard let url = Bundle.main.url(forResource: "defaultReasons", withExtension: "json") else { return }
+        guard let currentLanguages = Locale.preferredLanguages.first else { return }
+        
+        guard let url = Bundle.main.url(forResource: "defaultReasons\(currentLanguages == "es-ES" ? "_es" : "_en")", withExtension: "json") else { return }
         let data = try Data(contentsOf: url)
         
         let decoder = JSONDecoder()

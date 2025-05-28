@@ -1,0 +1,651 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+      "shouldTranslate" : false
+    },
+    ", " : {
+      "shouldTranslate" : false
+    },
+    "%lld/4" : {
+      "shouldTranslate" : false
+    },
+    "Add any thoughts that reflect how you’re feeling" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añade cualquier pensamiento que refleje cómo te sientes"
+          }
+        }
+      }
+    },
+    "Add new reason" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir nueva razón"
+          }
+        }
+      }
+    },
+    "Add reason" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir razón"
+          }
+        }
+      }
+    },
+    "Afternoon" : {
+      "comment" : "TimeSlot",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tarde"
+          }
+        }
+      }
+    },
+    "All emotions" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todas las emociones"
+          }
+        }
+      }
+    },
+    "All reasons" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todas las razones"
+          }
+        }
+      }
+    },
+    "Angry" : {
+      "comment" : "Enfadado",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enfadado"
+          }
+        }
+      }
+    },
+    "Anything you want to add" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algo más que quieras añadir"
+          }
+        }
+      }
+    },
+    "awesome" : {
+      "comment" : "MoodTypes",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "increíble"
+          }
+        }
+      }
+    },
+    "Awesome" : {
+      "comment" : "MoodTypes",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Increíble"
+          }
+        }
+      }
+    },
+    "Aww" : {
+      "comment" : "Emotions",
+      "extractionState" : "manual",
+      "shouldTranslate" : false
+    },
+    "bad" : {
+      "comment" : "MoodTypes",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "mal"
+          }
+        }
+      }
+    },
+    "Bad" : {
+      "comment" : "MoodTypes",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mal"
+          }
+        }
+      }
+    },
+    "Because of " : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A causa de "
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        }
+      }
+    },
+    "Choose the emotions that make you feel %@" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige las emociones que te hacen sentir %@"
+          }
+        }
+      }
+    },
+    "Clear all" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar todo"
+          }
+        }
+      }
+    },
+    "Close" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar"
+          }
+        }
+      }
+    },
+    "Confused" : {
+      "comment" : "Emotions",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confundido"
+          }
+        }
+      }
+    },
+    "Continue" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        }
+      }
+    },
+    "Cool" : {
+      "comment" : "Emotions",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guay"
+          }
+        }
+      }
+    },
+    "Dawn" : {
+      "comment" : "TimeSlot",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amanecer"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar"
+          }
+        }
+      }
+    },
+    "Delete existing mood?" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Eliminar mood existente?"
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar"
+          }
+        }
+      }
+    },
+    "Evening" : {
+      "comment" : "TimeSlot",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anochecer"
+          }
+        }
+      }
+    },
+    "Excited" : {
+      "comment" : "Emotions",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Excitado"
+          }
+        }
+      }
+    },
+    "Future Date" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fecha futura"
+          }
+        }
+      }
+    },
+    "good" : {
+      "comment" : "MoodTypes",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "bien"
+          }
+        }
+      }
+    },
+    "Good" : {
+      "comment" : "MoodTypes",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bien"
+          }
+        }
+      }
+    },
+    "Happy" : {
+      "comment" : "Emotions",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feliz"
+          }
+        }
+      }
+    },
+    "Mood already logged" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mood ya registrado"
+          }
+        }
+      }
+    },
+    "Mood chart" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gráfica de moods"
+          }
+        }
+      }
+    },
+    "Mood Tracker" : {
+      "shouldTranslate" : false
+    },
+    "Morning" : {
+      "comment" : "TimeSlot",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mañana"
+          }
+        }
+      }
+    },
+    "neutral" : {
+      "comment" : "MoodTypes",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "neutral"
+          }
+        }
+      }
+    },
+    "Neutral" : {
+      "comment" : "MoodTypes",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neutral"
+          }
+        }
+      }
+    },
+    "Night" : {
+      "comment" : "TimeSlot",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noche"
+          }
+        }
+      }
+    },
+    "No Mood Logged" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ningún mood registrado"
+          }
+        }
+      }
+    },
+    "Note: " : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nota: "
+          }
+        }
+      }
+    },
+    "Peaceful" : {
+      "comment" : "Emotions",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tranquilo"
+          }
+        }
+      }
+    },
+    "Reason" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Razón"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        }
+      }
+    },
+    "Select at least 1 emotion" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona al menos 1 emoción"
+          }
+        }
+      }
+    },
+    "Select the mood that best reflects how you’re feeling right now" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona el mood que mejor refleje cómo te sientes en este momento"
+          }
+        }
+      }
+    },
+    "Select the reason that reflected your emotions" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona la razón que ha provocado cómo te sientes"
+          }
+        }
+      }
+    },
+    "Selected (max %lld)" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionado (max %lld)"
+          }
+        }
+      }
+    },
+    "Stressed" : {
+      "comment" : "Emotions",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estresado"
+          }
+        }
+      }
+    },
+    "Surprised" : {
+      "comment" : "Emotions",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sorprendido"
+          }
+        }
+      }
+    },
+    "terrible" : {
+      "comment" : "MoodTypes",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "terrible"
+          }
+        }
+      }
+    },
+    "Terrible" : {
+      "comment" : "MoodTypes",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terrible"
+          }
+        }
+      }
+    },
+    "This will permanently delete your mood data" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esto eliminará permanentemente tus datos del mood"
+          }
+        }
+      }
+    },
+    "Try editing your existing mood instead" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes editar el mood que ya tienes guardado"
+          }
+        }
+      }
+    },
+    "What's your mood now?" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es tu mood actual?"
+          }
+        }
+      }
+    },
+    "What`s reason making you feel this way?" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es la razón por la que te sientes así?"
+          }
+        }
+      }
+    },
+    "Worried" : {
+      "comment" : "Emotions",
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preocupado"
+          }
+        }
+      }
+    },
+    "You can’t register a mood for future dates." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No puedes registrar un mood para fechas futuras"
+          }
+        }
+      }
+    },
+    "You felt " : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Te sentiste "
+          }
+        }
+      }
+    },
+    "You haven’t logged any mood for this day." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No has registrado ningún mood para este día"
+          }
+        }
+      }
+    },
+    "You're feeling " : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Te sientes "
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

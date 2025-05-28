@@ -79,10 +79,10 @@ struct DayItemView: View {
 
     var body: some View {
         VStack(spacing: 4) {
-            Text(date, format: .dateTime.weekday())
+            Text(date, format: .dateTime.weekday(.narrow))
                 .customFont(.caption2)
             
-            Text(date, format: .dateTime.day())
+            Text(date, format: .dateTime.day(.twoDigits))
                 .customFont(.body, weight: .semibold)
         }
         .foregroundStyle(isSelected ? .white : .primary)

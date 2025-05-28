@@ -115,7 +115,7 @@ struct MoodEditorView: View {
     var firstPage: some View {
         VStack(spacing: 200) {
             AddMoodHeader(title: "What's your mood now?",
-                          subtitle: "Select mood that reflects the most how you are feeling at this moment")
+                          subtitle: "Select the mood that best reflects how you’re feeling right now")
             
             MoodSelector(selectedMood: vm.selectedMood) { mood in
                 vm.selectedMood = mood
@@ -160,8 +160,8 @@ struct MoodEditorView: View {
         VStack(spacing: 36) {
             Group {
                 if vm.selectedReason.isEmpty {
-                    AddMoodHeader(title: "What`s reason making you feel this way",
-                                  subtitle: "Select the reason that reflated your emotions")
+                    AddMoodHeader(title: "What`s reason making you feel this way?",
+                                  subtitle: "Select the reason that reflected your emotions")
                 } else {
                     SelectedComponent(values: vm.selectedReason, displayKeyPath: \.name, maxElement: 1) {
                         vm.selectedReason.removeAll()
@@ -183,7 +183,7 @@ struct MoodEditorView: View {
                     Button {
                         showAddReason.toggle()
                     } label: {
-                        Text("Add new reason")
+                        Text("Add reason")
                             .customFont(.body)
                     }
                 }
@@ -202,8 +202,8 @@ struct MoodEditorView: View {
     
     var fourthPage: some View {
         VStack(spacing: 36) {
-            AddMoodHeader(title: "Any thing you want to add",
-                          subtitle: "Add your notes on any thought that reflating yout mood")
+            AddMoodHeader(title: "Anything you want to add",
+                          subtitle: "Add any thoughts that reflect how you’re feeling")
             .frame(height: 100)
             
             TextEditor(text: $vm.note)

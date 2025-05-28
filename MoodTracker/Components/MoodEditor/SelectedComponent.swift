@@ -39,7 +39,7 @@ struct SelectedComponent<V: RandomAccessCollection>: View where V.Element: Ident
                                 Text(item)
                                     .tag(item)
                             } else {
-                                Text("\(value)".capitalized)
+                                Text(LocalizedStringKey("\(value)".capitalized))
                                     .tag(value)
                             }
                         }

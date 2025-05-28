@@ -9,8 +9,8 @@ import SwiftUI
 
 struct FloatingSheet<V: View>: View {
     let iconName: String
-    let title: String
-    var subtitle: String?
+    let title: LocalizedStringKey
+    var subtitle: LocalizedStringKey?
     @ViewBuilder let content: () -> V
 
     var body: some View {

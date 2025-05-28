@@ -17,7 +17,8 @@ struct Mood: Identifiable {
     let date: Date
     
     var emotionsList: String {
-        emotions.map { $0.rawValue }
+        emotions
+            .map { NSLocalizedString($0.rawValue, comment: "") }
             .formatted(.list(type: .and))
     }
 }

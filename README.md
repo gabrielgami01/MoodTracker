@@ -7,5 +7,5 @@ Está diseñada aplicando **Test-Driven Development (TDD)**.
 - **SwiftUI**: Para construir una interfaz de usuario declarativa.
 - **Core Data**: Para la persistencia local de datos.
 
-## 📸 Capturas
+## 📸 Demo
 ![MoodTracker_Demo](https://github.com/user-attachments/assets/dc7ba8f4-73d8-4e67-bee3-847877744e40)

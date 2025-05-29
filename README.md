@@ -8,3 +8,4 @@ Está diseñada aplicando **Test-Driven Development (TDD)**.
 - **Core Data**: Para la persistencia local de datos.
 
 ## 📸 Capturas
+![MoodTracker_Demo](https://github.com/user-attachments/assets/dc7ba8f4-73d8-4e67-bee3-847877744e40)
